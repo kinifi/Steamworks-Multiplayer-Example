@@ -1,0 +1,628 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"system",
+				"SystemLanguage"
+			],
+			[
+				"System",
+				"SystemLanguage"
+			],
+			[
+				"FindP",
+				"FindPropertyAssert"
+			],
+			[
+				"En",
+				"EndVertical()\tvoid"
+			],
+			[
+				"Be",
+				"BeginHorizontal(params GUILayoutOption[] options)\tvoid"
+			],
+			[
+				"EditorGU",
+				"EditorGUILayout\tEditorGUILayout"
+			],
+			[
+				"Set",
+				"GetString(string key)\tstring"
+			],
+			[
+				"GUILA",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"m",
+				"m_Values\tList<LanguageValue>"
+			],
+			[
+				"Remov",
+				"RemoveAt(int index)\tvoid"
+			],
+			[
+				"Lagn",
+				"LanguageValue\tLanguageValue"
+			],
+			[
+				"mNew",
+				"mNewValue\tstring"
+			],
+			[
+				"new",
+				"mNewValue\tstring"
+			],
+			[
+				"systemlan",
+				"newSystemLanguage\tSystemLanguage"
+			],
+			[
+				"Language",
+				"LanguageValue()\tLanguageValue()"
+			],
+			[
+				"GUIla",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUILa",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUila",
+				"GUILayout\tGUILayout"
+			],
+			[
+				"GUILay",
+				"GUILayout\tGUILayout"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Steam/CreateServer.cs",
+			"settings":
+			{
+				"buffer_size": 804,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Steam/Matchmakingprocessflow.txt",
+			"settings":
+			{
+				"buffer_size": 1309,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "Matchmaking process flow"
+			}
+		},
+		{
+			"file": "Assets/Steam/LobbyList.cs",
+			"settings":
+			{
+				"buffer_size": 2167,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 357.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Boxy Theme: Activation"
+			],
+			[
+				"box",
+				"Boxy Theme: Activation"
+			],
+			[
+				"toggle open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 374.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Unity Projects/steam_mm",
+		"/D/Unity Projects/steam_mm/Assets",
+		"/D/Unity Projects/steam_mm/Assets/Steam"
+	],
+	"file_history":
+	[
+		"/D/Unity Projects/steam_mm/Assets/CreateServer.cs",
+		"/D/Unity Projects/steam_mm/sb.sublime-project",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabClient.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabCache.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabAssets.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/ConflictsManager.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/AssetPipeline/RefreshAssets.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/AssetPipeline/ResourcePacker.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/AssetPipeline/AssetDatabase.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/AssetPipeline/AssetInterface.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/Collab.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabFileSystemOperations.cpp",
+		"/D/Unity Projects/HDRsupport2/Assets/Marmoset/Examples/Examples/Script/FreeCamera.cs",
+		"/D/Unity Projects/Testertestingtest/Assets/Editor/testertest.cs",
+		"/C/Users/chrisf/unity/.hg/hgrc",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/Tests/CollabFileSystemOperationsStub.h",
+		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabFileSystemOperations.h",
+		"/C/Users/chrisf/unity/Runtime/Utilities/FileUtilities.cpp",
+		"/C/Users/chrisf/unity/Runtime/Misc/PlayerSettings.cpp",
+		"/C/Users/chrisf/unity/Runtime/Misc/SystemInfo.h",
+		"/C/Users/chrisf/unity/Runtime/Export/BaseClass.cs",
+		"/C/Users/chrisf/unity/Runtime/Export/common_include",
+		"/C/Users/chrisf/unity/Runtime/Misc/PlayerSettings.h",
+		"/C/Users/chrisf/unity/Runtime/Export/Application.bindings",
+		"/C/Users/chrisf/unity/Editor/Src/Application.cpp",
+		"/C/Users/chrisf/unity/Editor/Mono/Inspector/PlayerSettingsEditor/PlayerSettingsEditor.cs",
+		"/C/Users/chrisf/unity/PlatformDependent/iPhonePlayer/SystemInfo.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/Application.h",
+		"/C/Users/chrisf/unity/Editor/Platform/OSX/Utility/OpenGLView.mm",
+		"/D/Unity Projects/testeditorsettings/Assets/test.cs",
+		"/C/Users/chrisf/unity/Editor/Mono/PlayerSettings.bindings",
+		"/C/Users/chrisf/unity/Editor/Mono/SceneModeWindows/LightingWindow.cs",
+		"/D/Unity Projects/testeditorsettings/Assets/languagetest.cs",
+		"/D/Unity Projects/testeditorsettings/Assets/M10N/M10NStringDatabase.cs",
+		"/C/Users/chrisf/unity/Editor/Src/WebViewWindowPrivate.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/RestService/RestService.h",
+		"/C/Users/chrisf/unity/Editor/Src/RestService/RestService.cpp",
+		"/C/Users/chrisf/unity/Editor/Mono/EditorBuildSettings.bindings",
+		"/C/Users/chrisf/unity/Editor/Mono/BuildPlayerWindow.cs",
+		"/C/Users/chrisf/unity/Editor/Src/EditorBuildSettings.cpp",
+		"/C/Users/chrisf/unity/Editor/Src/EditorUserBuildSettings.cpp",
+		"/D/Unity Projects/XboxOne-Addon/Assets/Editor/ReadSceneNames.cs",
+		"/D/Unity Projects/XboxOne-Addon/Assets/Editor/BuildChainWindow.cs",
+		"/D/Unity Projects/XboxOne-Addon/Assets/Editor/XboxOneDocs.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Editor/LanguageEditor.cs",
+		"/D/Unity Projects/XboxOne-Addon/Assets/Editor/BuildChaining.cs",
+		"/D/Unity Projects/XboxOne-Addon/sb.sublime-project",
+		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/LanguageValue.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/Classes/Language.cs",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/Assets/Language-Tool/UI-Helpers/LocalizeText.cs",
+		"/D/Unity Projects/portnumberneeded/New Unity Project/Assets/Multiplayer/Common/Game/JoinFriendGameSession.cs",
+		"/D/Unity Projects/portnumberneeded/New Unity Project/Assets/Multiplayer/MP2015/MP2015.cs",
+		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/C#.sublime-settings",
+		"/C/Users/chrisf/Documents/GitHub/localization-tool/sb_localization.sublime-project",
+		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/C/Users/chrisf/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"RtlLookupFunctionEntry",
+			"[MenuItem(\"Window/Animation\")]",
+			"[MenuItem(\"Window/\")]",
+			"gameLanguage",
+			"GetGameLanguage",
+			"GetSystemLanguage",
+			"SystemLanguage",
+			"Language",
+			"Game",
+			"Language",
+			"gameLanguage",
+			"Language",
+			"playersettings::GetGame",
+			"updateGLContext",
+			"gameLanguage",
+			"GetSystemLanguage",
+			"GetSystemLanguage()",
+			"terminate",
+			"Application::Terminate",
+			"life_span_handler_on_before_close",
+			"m_GameLanguage",
+			"Lightmapping",
+			"Lightmapping.filterMode",
+			"playersettings",
+			"EnumPopup",
+			"enum",
+			"targetgroup",
+			"m_RenderingPath",
+			"m_SplashScreenStyle",
+			"gamelanguage",
+			"SerializedProperty",
+			"m_GameLanguage",
+			"ScriptingImplementation",
+			"newBackend",
+			"gamelanguage",
+			"OtherSectionConfigurationGUI",
+			"other",
+			"SetSubmitAnalytics",
+			"scenes",
+			"m_Scenes",
+			"user",
+			"mLevel.m_Keys",
+			"DisplayKeys",
+			"DisplayKeys()",
+			"port",
+			"m_NewValue",
+			"m_newvalue"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Steam/CreateServer.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								800,
+								800
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"241,259": "after '_' a lower letter should follow. (Rule 'Fields')",
+								"45,50": "Using directive is not used by code and can be removed safely.",
+								"516,534": "Method 'OnLobbyGameCreated' can be made static.",
+								"79,84": "Using directive is not used by code and can be removed safely."
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Steam/Matchmakingprocessflow.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Matchmaking process flow",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Steam/LobbyList.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								225,
+								208
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"1003,1019": "Method 'OnLobbyMatchList' can be made static.",
+								"1422,1428": "no known errors.",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"2009,2019": "Method 'LeaveLobby' can be made static.",
+								"2029,2035": "no known errors.",
+								"45,50": "Using directive is not used by code and can be removed safely.",
+								"79,84": "Using directive is not used by code and can be removed safely."
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 98.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 94.0
+	},
+	"pinned_build_system": "",
+	"project": "sb.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"collabas",
+				"Editor\\Src\\Collab\\CollabAssets.cpp"
+			],
+			[
+				"fileutilities.cpp",
+				"Runtime\\Utilities\\FileUtilities.cpp"
+			],
+			[
+				"collabfilesystemoperations",
+				"Editor\\Src\\Collab\\Tests\\CollabFileSystemOperationsStub.h"
+			],
+			[
+				"application.",
+				"Editor\\Src\\Application.cpp"
+			],
+			[
+				"systeminfo.cpp",
+				"PlatformDependent\\iPhonePlayer\\SystemInfo.cpp"
+			],
+			[
+				"application.h",
+				"Editor\\Src\\Application.h"
+			],
+			[
+				"openglview",
+				"Editor\\Platform\\OSX\\Utility\\OpenGLView.mm"
+			],
+			[
+				"application",
+				"Editor\\Src\\Application.cpp"
+			],
+			[
+				"webviewwindowprivate",
+				"Editor\\Src\\WebViewWindowPrivate.cpp"
+			],
+			[
+				"webviewprivate",
+				"Editor\\Src\\WebViewWindowPrivate.cpp"
+			],
+			[
+				"application.bin",
+				"Runtime\\Export\\Application.bindings"
+			],
+			[
+				"playersettings.bin",
+				"Editor\\Mono\\PlayerSettings.bindings"
+			],
+			[
+				"lightwindow",
+				"Editor\\Mono\\SceneModeWindows\\LightingWindow.cs"
+			],
+			[
+				"playersettings.",
+				"Runtime\\Misc\\PlayerSettings.cpp"
+			],
+			[
+				"commonin",
+				"Runtime\\Export\\common_include"
+			],
+			[
+				"systeminfo.h",
+				"Runtime\\Misc\\SystemInfo.h"
+			],
+			[
+				"systemi",
+				"PlatformDependent\\iPhonePlayer\\SystemInfo.cpp"
+			],
+			[
+				"basecal",
+				"Runtime\\Export\\BaseClass.cs"
+			],
+			[
+				"commoni",
+				"Runtime\\Export\\common_include"
+			],
+			[
+				"playersettings.cs",
+				"Editor\\Mono\\Inspector\\PlayerSettingsEditor\\PlayerSettingsEditor.cs"
+			],
+			[
+				"restservice.h",
+				"Editor\\Src\\RestService\\RestService.h"
+			],
+			[
+				"restserv",
+				"Editor\\Src\\RestService\\RestService.cpp"
+			],
+			[
+				"playersettings",
+				"Editor\\Mono\\PlayerSettings.bindings"
+			],
+			[
+				"playersettings.h",
+				"Runtime\\Misc\\PlayerSettings.h"
+			],
+			[
+				"editorbuildsettings.bin",
+				"Editor\\Mono\\EditorBuildSettings.bindings"
+			],
+			[
+				"buildplayer",
+				"Editor\\Mono\\BuildPlayerWindow.cs"
+			],
+			[
+				"editoruserbuildsettings",
+				"Editor\\Src\\EditorUserBuildSettings.cpp"
+			],
+			[
+				"buildsett",
+				"Editor\\Src\\EditorBuildSettings.cpp"
+			],
+			[
+				"language",
+				"Assets\\Language-Tool\\Classes\\Language.cs"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 121.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

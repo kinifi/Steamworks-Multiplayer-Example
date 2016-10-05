@@ -1,0 +1,14 @@
+Matchmaking process flow
+The usual model for getting groups together to play is as follows:
+
+1. User selects in the game that they want to play multiplayer, and what kind of multiplayer they want (rules, scenario, etc.).
+
+2. The game searches for lobbies that have a similar same set of rules, using the lobby search API.
+
+3. If a lobby is found, then the game joins that lobby; if no lobby is found, then it creates a new lobby
+
+4. Users stay in a lobby until there are enough players ready to launch the game. Data is communicated between the lobby members about which character they want to play, or other per-user settings. If there are some rules that need to be enforced in the lobby (for example, only one user can play as a certain character), there is one and only one lobby owner who you can use to arbritrate that.
+
+5. There may or may not be a user interface associated with the lobby; if there is, the lobby data communications functions can be used to send chat messages between lobby members. Voice data can also be sent, but needs to sent using the peer-to-peer networking API.
+
+6. Once the game is ready to launch, the users all join the game server, or connect to the user nominated to host the game, and then leave the lobby. Once all users have left a lobby, it is automatically destroyed.
