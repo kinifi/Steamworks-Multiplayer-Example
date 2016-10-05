@@ -310,7 +310,6 @@ public class CreateServer : MonoBehaviour {
 		_lobby.name = SteamMatchmaking.GetLobbyData (lobby, "name");
 		_lobby.lobby = lobby;
 		return _lobby;
-
 	}
 
 	///////////////////////////////////////
