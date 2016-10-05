@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"chatmes",
+				"LobbyChatMessageValue\tLobbyChatMessageValue"
+			],
+			[
 				"system",
 				"SystemLanguage"
 			],
@@ -83,34 +87,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Assets/Steam/CreateServer.cs",
-			"settings":
-			{
-				"buffer_size": 804,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Steam/Matchmakingprocessflow.txt",
-			"settings":
-			{
-				"buffer_size": 1309,
-				"encoding": "UTF-8",
-				"line_ending": "Windows",
-				"name": "Matchmaking process flow"
-			}
-		},
-		{
-			"file": "Assets/Steam/LobbyList.cs",
-			"settings":
-			{
-				"buffer_size": 2167,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -165,12 +141,13 @@
 	},
 	"expanded_folders":
 	[
-		"/D/Unity Projects/steam_mm",
-		"/D/Unity Projects/steam_mm/Assets",
-		"/D/Unity Projects/steam_mm/Assets/Steam"
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example"
 	],
 	"file_history":
 	[
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/Matchmakingprocessflow.txt",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/CreateServer.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/LobbyList.cs",
 		"/D/Unity Projects/steam_mm/Assets/CreateServer.cs",
 		"/D/Unity Projects/steam_mm/sb.sublime-project",
 		"/C/Users/chrisf/unity/Editor/Src/Collab/CollabClient.cpp",
@@ -231,7 +208,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 48.0
 	},
 	"find_in_files":
 	{
@@ -310,112 +287,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Assets/Steam/CreateServer.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 804,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								800,
-								800
-							]
-						],
-						"settings":
-						{
-							"oops":
-							{
-								"19,24": "Using directive is not used by code and can be removed safely.",
-								"241,259": "after '_' a lower letter should follow. (Rule 'Fields')",
-								"45,50": "Using directive is not used by code and can be removed safely.",
-								"516,534": "Method 'OnLobbyGameCreated' can be made static.",
-								"79,84": "Using directive is not used by code and can be removed safely."
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Steam/Matchmakingprocessflow.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1309,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								222,
-								222
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Matchmaking process flow",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/Steam/LobbyList.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2167,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								225,
-								208
-							]
-						],
-						"settings":
-						{
-							"oops":
-							{
-								"1003,1019": "Method 'OnLobbyMatchList' can be made static.",
-								"1422,1428": "no known errors.",
-								"19,24": "Using directive is not used by code and can be removed safely.",
-								"2009,2019": "Method 'LeaveLobby' can be made static.",
-								"2029,2035": "no known errors.",
-								"45,50": "Using directive is not used by code and can be removed safely.",
-								"79,84": "Using directive is not used by code and can be removed safely."
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -620,7 +493,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 121.0,
+	"side_bar_width": 87.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
