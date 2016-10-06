@@ -10,6 +10,8 @@ public class SteamTestScript : SteamServerCreator {
 
 	// public SteamServerCreator m_SteamServer;
 
+	public P2PTest m_p2ptest;
+
 	// Use this for initialization
 	void Start () {
 
@@ -18,6 +20,8 @@ public class SteamTestScript : SteamServerCreator {
 
 		//request all the lobbbies
 		RequestLobbyList();
+
+		//m_p2ptest.Start ();
 	
 	}
 	

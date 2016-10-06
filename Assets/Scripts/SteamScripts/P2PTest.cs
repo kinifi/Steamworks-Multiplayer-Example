@@ -21,13 +21,17 @@ public class P2PTest : MonoBehaviour {
 	public bool m_hasConnected = false;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 	
 		//register the p2prequest callresult
 		OnP2PSessionRequestResult = CallResult<P2PSessionRequest_t>.Create(OnP2PSessionRequest);
 
 		//register the fail connect callresult
 		OnP2PSessionConnectFailResult = CallResult<P2PSessionConnectFail_t>.Create(OnP2PSessionConnectFail);
+
+		//GetPlayersInLobby ();
+
+		//Debug.Log ("hey");
 
 	}
 	
@@ -43,11 +47,13 @@ public class P2PTest : MonoBehaviour {
 		//gets the number of lobby members
 		int numberOfLobbyMembers = SteamMatchmaking.GetNumLobbyMembers(lobby);
 
+		//cycle through every player and get their steam ID's
 		for (int i = 0; i < numberOfLobbyMembers; i++) 
 		{
 			//create a new player
 			Player _player = new Player();
 			_player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(lobby, i);
+			Debug.Log (_player.lobbyID);
 			//SteamUser.GetSteamID ();
 			//not sure if this is right
 			//_player.steamPersonaName = SteamFriends.GetFriendPersonaName(lobby);

@@ -7,7 +7,7 @@ using Steamworks;
 public class CreateServer : MonoBehaviour {
 
 	private CSteamID m_Lobby;
-	private LobbyValue currentLobby;
+	public LobbyValue currentLobby;
 
 	private List<LobbyValue> m_LobbyList = new List<LobbyValue>();
 

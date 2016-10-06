@@ -88,30 +88,12 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Scripts/SteamScripts/HLAPI/Tests/SteamTestScript.cs",
-			"settings":
-			{
-				"buffer_size": 476,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
 			"settings":
 			{
-				"buffer_size": 10644,
+				"buffer_size": 10643,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
-			"settings":
-			{
-				"buffer_size": 1941,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -119,6 +101,15 @@
 			"settings":
 			{
 				"buffer_size": 223,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
+			"settings":
+			{
+				"buffer_size": 4398,
+				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		}
@@ -130,7 +121,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 357.0,
+		"height": 78.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -185,8 +176,10 @@
 	],
 	"file_history":
 	[
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/LobbyChatMessage.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/sb.sublime-project",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Tests/SteamTestScript.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/LobbyChatMessage.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs.meta",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/SteamServerCreator.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/SteamTestScript.cs",
@@ -269,6 +262,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"LeaveLobby",
+			"here",
+			"OnLobbyEnter",
+			"OnLobbyEnterCallResult",
 			"OnLobbyMatchListCallResult",
 			"RequestLobbyList",
 			"currentlobby",
@@ -338,82 +335,87 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/SteamScripts/HLAPI/Tests/SteamTestScript.cs",
+					"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 476,
+						"buffer_size": 10643,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								438,
-								438
+								6472,
+								6472
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 223,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10109,
-								10109
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2352.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 2,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 2,
 					"file": "Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1941,
+						"buffer_size": 4398,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								301,
-								301
+								1165,
+								1165
 							]
 						],
 						"settings":
@@ -456,35 +458,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 223,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								223,
-								89
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 504.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -510,11 +484,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.469375,
 			1.0
 		],
 		"rows":
@@ -686,7 +667,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
