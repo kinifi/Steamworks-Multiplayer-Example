@@ -196,7 +196,7 @@ public class CreateServer : MonoBehaviour {
 	public void SetLobbyData(CSteamID lobby, string name, string lobbySummary)
 	{
 		SteamMatchmaking.SetLobbyData (lobby, name, lobbySummary);
-		print("SteamMatchmaking.SetLobbyData() : " + lobbyName + " : " + lobbySummary);
+		Debug.Log("SteamMatchmaking.SetLobbyData() : " + lobbyName + " : " + lobbySummary);
 	}
 
 	////////////////
@@ -207,7 +207,7 @@ public class CreateServer : MonoBehaviour {
 	{
 		SteamAPICall_t handle = SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, maxMembers);
 		OnLobbyCreatedCallResult.Set(handle);
-		print("SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 1) : " + handle);
+		Debug.Log("SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 1) : " + handle);
 	}
 
 

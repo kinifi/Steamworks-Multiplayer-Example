@@ -6,25 +6,29 @@
 using UnityEngine;
 using System.Collections;
 
-public class SteamTestScript : SteamServerCreator {
+public class SteamTestScript : MonoBehaviour {
 
-	// public SteamServerCreator m_SteamServer;
-
-	public P2PTest m_p2ptest;
 
 	// Use this for initialization
 	void Start () {
-
-		//setup the server
-		Setup();
-
-		//request all the lobbbies
-		RequestLobbyList();
-
-		//m_p2ptest.Start ();
 	
+		SteamMultiplayerManager.Instance.Setup();
+
+		StartCoroutine(SteamLobbyTest());
+
 	}
 	
 	
+	public IEnumerator SteamLobbyTest()
+	{
+
+		yield return new WaitForSeconds(1);
+
+		SteamMultiplayerManager.Instance.RequestLobbyList();
+
+		yield return new WaitForSeconds(1);
+
+		Debug.Log(SteamMultiplayerManager.Instance.m_LobbyList[0].name);
+	}	
 	
 }
