@@ -1,51 +1,43 @@
 # Steamworks-Multiplayer-Example
 
-This is an attempt at making Steam Multiplayer Easier in Unity via inheritance. 
+This is an attempt at making Steam Multiplayer Easier in Unity. 
 
 
-Creating a new script and inheriting from SteamServerCreator will hide all the callbacks needed to get what you need to start the game. 
 
 ```csharp
 using UnityEngine;
 using System.Collections;
 
-public class SteamTestScript : SteamServerCreator {
+public class SteamTestScript : MonoBehaviour {
+
 
 	// Use this for initialization
 	void Start () {
-
-		//setup the server
-		Setup();
-
-		//request all the lobbbies
-		RequestLobbyList();
 	
+		SteamMultiplayerManager.Instance.Setup();
+		//just made this a coroutine to show that it takes time to get the lobby information sometimes
+		StartCoroutine(SteamLobbyTest());
+
 	}
 	
-}
-```
+	
+	public IEnumerator SteamLobbyTest()
+	{
 
-Accessing the lobbies after this is just accessing a List of a class called Lobby.cs
-```csharp
-  ///<summary>
-	/// the lobby list from RequestLobbyList
-	///</summary>
-	public List<Lobby> m_lobbyList = new List<Lobby>();
-```
+		yield return new WaitForSeconds(1);
 
-Lobby Class
-```csharp
-using Steamworks;
+		SteamMultiplayerManager.Instance.RequestLobbyList();
 
-public class Lobby
-{
-	public string name;
-	public string summary;
-	public int lobbyIndex;
-	public CSteamID lobby;
+		yield return new WaitForSeconds(1);
+
+		Debug.Log(SteamMultiplayerManager.Instance.m_LobbyList[0].name);
+	}	
+	
 }
 
 ```
+
+
 
 This makes accessing lobbies and getting the information you need easy! Note: Lobby.summary isn't filled out sometimes due to the Lobby Owner not setting that property.
 
