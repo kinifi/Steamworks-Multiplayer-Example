@@ -160,6 +160,7 @@ public class SteamMultiplayerManager
 			// //set the lobby to our class level
 			// m_Lobby = ;
 			// currentLobby = GetLobbyDataInfo (
+			m_Lobby = new CurrentLobby();
 			m_Lobby.lobby = (CSteamID)pCallback.m_ulSteamIDLobby;
 		}
 		else
