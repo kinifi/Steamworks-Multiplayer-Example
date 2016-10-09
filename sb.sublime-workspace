@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"Lobby",
+				"LobbyMenu()\tvoid"
+			],
+			[
+				"Debug",
+				"DebugTextOn\tbool"
+			],
+			[
+				"GetLobbyO",
+				"GetLobbyOwnerId(CSteamID lobby)\tCSteamID"
+			],
+			[
+				"Getlob",
+				"GetLobbyDataInfo(CSteamID lobby)\tLobby"
+			],
+			[
+				"Waitfor",
+				"WaitForSeconds(float seconds)\tWaitForSeconds(float seconds)"
+			],
+			[
+				"IEN",
+				"IEnumerator\tIEnumerator"
+			],
+			[
 				"m",
 				"m_ChatMessages\tList<LobbyChatMessageValue>"
 			],
@@ -88,29 +112,21 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
+			"file": "Assets/Scripts/SteamMultiplayerManager.cs",
 			"settings":
 			{
-				"buffer_size": 10643,
+				"buffer_size": 10328,
 				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
+			"file": "/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
 			"settings":
 			{
-				"buffer_size": 223,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
-			"settings":
-			{
-				"buffer_size": 4398,
+				"buffer_size": 1875,
 				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -171,19 +187,21 @@
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes"
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI"
 	],
 	"file_history":
 	[
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/sb.sublime-project",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Tests/SteamTestScript.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/CurrentLobby.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
+		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/sb.sublime-project",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/LobbyChatMessage.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs.meta",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/SteamServerCreator.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/SteamTestScript.cs",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/Matchmakingprocessflow.txt",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/CreateServer.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Steam/LobbyList.cs",
@@ -262,6 +280,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"OnLobbyMatchList",
+			"OnLobbyMatchListCallResult",
+			"m_lobby",
+			"member",
+			"index",
+			"player",
+			"m_players",
+			"OnLobbyChatUpdate",
+			"OnLobbyChatMsg",
+			"OnLobbyCreated",
+			"CreateLobby",
+			"OnLobbyCreated",
+			"OnLobbyDataUpdate",
+			"SetLobbyData",
+			"Request",
+			"m_lobbyList",
+			"print",
 			"LeaveLobby",
 			"here",
 			"OnLobbyEnter",
@@ -335,33 +370,216 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
+					"file": "Assets/Scripts/SteamMultiplayerManager.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10643,
+						"buffer_size": 10328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6472,
-								6472
+								6490,
+								6499
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"oops":
+							{
+								"1014,1019": "'Lobby' is not a known identifier",
+								"1022,1023": "Cannot convert from System.Collections.Generic.List`1[[?]] to System.Collections.Generic.List`1[[?]]",
+								"1150,1164": "'LobbyChatMsg_t' is not a known identifier",
+								"1165,1166": "'Callback' is not a known identifier",
+								"1223,1240": "'LobbyChatUpdate_t' is not a known identifier",
+								"1241,1242": "'Callback' is not a known identifier",
+								"1319,1335": "'LobbyMatchList_t' is not a known identifier",
+								"1336,1337": "'CallResult' is not a known identifier",
+								"1414,1426": "'LobbyEnter_t' is not a known identifier",
+								"1427,1428": "'CallResult' is not a known identifier",
+								"1545,1562": "'LobbyDataUpdate_t' is not a known identifier",
+								"1563,1564": "'Callback' is not a known identifier",
+								"1631,1645": "'LobbyCreated_t' is not a known identifier",
+								"1646,1647": "'CallResult' is not a known identifier",
+								"1928,1942": "'LobbyCreated_t' is not a known identifier",
+								"1943,1944": "'CallResult' is not a known identifier",
+								"1944,1950": "'?' does not contain a definition for 'Create'",
+								"1966,1967": "Cannot convert from ? to [UnknownType CallResult`1]",
+								"2069,2085": "'LobbyMatchList_t' is not a known identifier",
+								"2086,2087": "'CallResult' is not a known identifier",
+								"2087,2093": "'?' does not contain a definition for 'Create'",
+								"2111,2112": "Cannot convert from ? to [UnknownType CallResult`1]",
+								"2204,2216": "'LobbyEnter_t' is not a known identifier",
+								"2217,2218": "'CallResult' is not a known identifier",
+								"2218,2224": "'?' does not contain a definition for 'Create'",
+								"2238,2239": "Cannot convert from ? to [UnknownType CallResult`1]",
+								"2315,2332": "'LobbyDataUpdate_t' is not a known identifier",
+								"2333,2334": "'Callback' is not a known identifier",
+								"2334,2340": "'?' does not contain a definition for 'Create'",
+								"2359,2360": "Cannot convert from ? to [UnknownType Callback`1]",
+								"2423,2437": "'LobbyChatMsg_t' is not a known identifier",
+								"2438,2439": "'Callback' is not a known identifier",
+								"2439,2445": "'?' does not contain a definition for 'Create'",
+								"2461,2462": "Cannot convert from ? to [UnknownType Callback`1]",
+								"2520,2537": "'LobbyChatUpdate_t' is not a known identifier",
+								"2538,2539": "'Callback' is not a known identifier",
+								"2539,2545": "'?' does not contain a definition for 'Create'",
+								"2564,2565": "Cannot convert from ? to [UnknownType Callback`1]",
+								"2763,2771": "'CSteamID' is not a known identifier",
+								"2851,2867": "'SteamMatchmaking' is not a known identifier",
+								"2868,2884": "'?' does not contain a definition for 'SendLobbyChatMsg'",
+								"2916,2917": "'?' does not contain a definition for 'SendLobbyChatMsg'",
+								"2957,2974": "'LobbyChatUpdate_t' is not a known identifier",
+								"3031,3048": "'LobbyChatUpdate_t' is not a known identifier",
+								"3049,3060": "Error: String",
+								"3100,3116": "Error: String",
+								"3138,3160": "Error: String",
+								"3182,3205": "Error: String",
+								"3227,3253": "Error: String",
+								"3293,3307": "'LobbyChatMsg_t' is not a known identifier",
+								"3533,3541": "'CSteamID' is not a known identifier",
+								"3589,3603": "'EChatEntryType' is not a known identifier",
+								"3631,3647": "'SteamMatchmaking' is not a known identifier",
+								"3648,3665": "'?' does not contain a definition for 'GetLobbyChatEntry'",
+								"3667,3675": "'CSteamID' is not a known identifier",
+								"3686,3702": "'LobbyChatMsg_t' does not contain a definition for 'm_ulSteamIDLobby'",
+								"3719,3728": "Cannot convert from 'None' to 'System.Int32'",
+								"3784,3785": "Cannot convert from ? to System.Int32",
+								"4155,4176": "'LobbyChatMessageValue' is not a known identifier",
+								"4189,4210": "'LobbyChatMessageValue' is not a known identifier",
+								"4212,4213": "'LobbyChatMessageValue' is not a known identifier",
+								"4222,4238": "'?' does not contain a definition for 'steamPersonaName'",
+								"4241,4253": "'SteamFriends' is not a known identifier",
+								"4254,4274": "'?' does not contain a definition for 'GetFriendPersonaName'",
+								"4287,4288": "'?' does not contain a definition for 'GetFriendPersonaName'",
+								"4297,4304": "'?' does not contain a definition for 'message'",
+								"4348,4349": "Cannot convert from System.String to ?",
+								"4511,4518": "Error: String",
+								"4699,4713": "'SteamAPICall_t' is not a known identifier",
+								"4723,4739": "'SteamMatchmaking' is not a known identifier",
+								"4740,4751": "'?' does not contain a definition for 'CreateLobby'",
+								"4752,4762": "'ELobbyType' is not a known identifier",
+								"4763,4781": "'?' does not contain a definition for 'k_ELobbyTypePublic'",
+								"4785,4786": "'?' does not contain a definition for 'CreateLobby'",
+								"4814,4817": "'CallResult' does not contain a definition for 'Set'",
+								"4825,4826": "'CallResult' does not contain a definition for 'Set'",
+								"4935,4941": "Error: String",
+								"5032,5040": "'CSteamID' is not a known identifier",
+								"5060,5076": "'SteamMatchmaking' is not a known identifier",
+								"5077,5095": "'?' does not contain a definition for 'GetNumLobbyMembers'",
+								"5102,5103": "Cannot convert from ? to System.Int32",
+								"5177,5185": "'CSteamID' is not a known identifier",
+								"5205,5221": "'SteamMatchmaking' is not a known identifier",
+								"5222,5241": "'?' does not contain a definition for 'GetLobbyMemberLimit'",
+								"5248,5249": "Cannot convert from ? to System.Int32",
+								"5283,5297": "'LobbyCreated_t' is not a known identifier",
+								"5381,5395": "'LobbyCreated_t' is not a known identifier",
+								"5396,5407": "Error: String",
+								"5444,5453": "Error: String",
+								"5475,5491": "Error: String",
+								"5613,5621": "'CSteamID' is not a known identifier",
+								"5632,5648": "Cannot convert from ? to [UnknownType CSteamID]",
+								"5748,5756": "'CSteamID' is not a known identifier",
+								"5798,5814": "'SteamMatchmaking' is not a known identifier",
+								"5815,5827": "'?' does not contain a definition for 'SetLobbyData'",
+								"5850,5851": "'?' does not contain a definition for 'SetLobbyData'",
+								"6128,6145": "'LobbyDataUpdate_t' is not a known identifier",
+								"6202,6203": "Error: String",
+								"6218,6235": "Error: String",
+								"6245,6252": "Error: String",
+								"6268,6278": "'LobbyDataUpdate_t' does not contain a definition for 'm_bSuccess'",
+								"6306,6322": "'LobbyDataUpdate_t' does not contain a definition for 'm_ulSteamIDLobby'",
+								"6501,6509": "'CSteamID' is not a known identifier",
+								"6522,6538": "'SteamMatchmaking' is not a known identifier",
+								"6539,6549": "'?' does not contain a definition for 'LeaveLobby'",
+								"6557,6558": "'?' does not contain a definition for 'LeaveLobby'",
+								"6753,6761": "'CSteamID' is not a known identifier",
+								"6775,6789": "'SteamAPICall_t' is not a known identifier",
+								"6799,6815": "'SteamMatchmaking' is not a known identifier",
+								"6816,6825": "'?' does not contain a definition for 'JoinLobby'",
+								"6833,6834": "'?' does not contain a definition for 'JoinLobby'",
+								"6860,6863": "'CallResult' does not contain a definition for 'Set'",
+								"6871,6872": "'CallResult' does not contain a definition for 'Set'",
+								"6943,6949": "Error: String",
+								"6961,6967": "Error: String",
+								"7113,7125": "'LobbyEnter_t' is not a known identifier",
+								"7207,7219": "'LobbyEnter_t' is not a known identifier",
+								"7220,7231": "Error: String",
+								"7266,7282": "Error: String",
+								"7304,7324": "Error: String",
+								"7346,7355": "Error: String",
+								"7377,7401": "Error: String",
+								"7484,7500": "'SteamMatchmaking' is not a known identifier",
+								"749,759": "'Steamworks' is not a known identifier",
+								"7501,7513": "'?' does not contain a definition for 'GetLobbyData'",
+								"7516,7524": "'CSteamID' is not a known identifier",
+								"7535,7551": "'LobbyEnter_t' does not contain a definition for 'm_ulSteamIDLobby'",
+								"7560,7561": "Cannot convert from ? to System.String",
+								"7582,7590": "'CSteamID' is not a known identifier",
+								"7601,7617": "Cannot convert from ? to [UnknownType CSteamID]",
+								"7622,7627": "'Lobby' is not a known identifier",
+								"7706,7710": "Cannot convert from ? to System.String",
+								"7941,7949": "'CSteamID' is not a known identifier",
+								"7966,7974": "'CSteamID' is not a known identifier",
+								"7994,8010": "'SteamMatchmaking' is not a known identifier",
+								"8011,8024": "'?' does not contain a definition for 'GetLobbyOwner'",
+								"8031,8032": "'?' does not contain a definition for 'GetLobbyOwner'",
+								"8116,8124": "'CSteamID' is not a known identifier",
+								"8137,8145": "'CSteamID' is not a known identifier",
+								"8188,8200": "'SteamFriends' is not a known identifier",
+								"8201,8221": "'?' does not contain a definition for 'GetFriendPersonaName'",
+								"8229,8230": "Cannot convert from ? to System.String",
+								"8433,8447": "'SteamAPICall_t' is not a known identifier",
+								"8457,8473": "'SteamMatchmaking' is not a known identifier",
+								"8474,8490": "'?' does not contain a definition for 'RequestLobbyList'",
+								"8492,8493": "'?' does not contain a definition for 'RequestLobbyList'",
+								"8523,8526": "'CallResult' does not contain a definition for 'Set'",
+								"8534,8535": "'CallResult' does not contain a definition for 'Set'",
+								"8617,8623": "Error: String",
+								"8665,8681": "'LobbyMatchList_t' is not a known identifier",
+								"8814,8830": "'LobbyMatchList_t' is not a known identifier",
+								"8831,8842": "Error: String",
+								"8881,8899": "Error: String",
+								"8944,8962": "Cannot convert from 'None' to 'System.Int32'",
+								"9121,9129": "'CSteamID' is not a known identifier",
+								"9145,9161": "'SteamMatchmaking' is not a known identifier",
+								"9162,9177": "'?' does not contain a definition for 'GetLobbyByIndex'",
+								"9184,9185": "'?' does not contain a definition for 'GetLobbyByIndex'",
+								"9283,9295": "Error: String",
+								"9305,9310": "'Lobby' is not a known identifier",
+								"9324,9329": "'Lobby' is not a known identifier",
+								"9332,9333": "'Lobby' is not a known identifier",
+								"9343,9347": "'?' does not contain a definition for 'name'",
+								"9350,9366": "'SteamMatchmaking' is not a known identifier",
+								"9367,9379": "'?' does not contain a definition for 'GetLobbyData'",
+								"9402,9403": "'?' does not contain a definition for 'GetLobbyData'",
+								"9413,9423": "'?' does not contain a definition for 'lobbyIndex'",
+								"9426,9431": "Cannot convert from System.Int32 to ?",
+								"9442,9447": "'?' does not contain a definition for 'lobby'",
+								"9504,9509": "'Lobby' is not a known identifier",
+								"9527,9535": "'CSteamID' is not a known identifier",
+								"9548,9553": "'Lobby' is not a known identifier",
+								"9567,9572": "'Lobby' is not a known identifier",
+								"9575,9576": "'Lobby' is not a known identifier",
+								"9586,9590": "'?' does not contain a definition for 'name'",
+								"9593,9609": "'SteamMatchmaking' is not a known identifier",
+								"9610,9622": "'?' does not contain a definition for 'GetLobbyData'",
+								"9638,9639": "'?' does not contain a definition for 'GetLobbyData'",
+								"9649,9654": "'?' does not contain a definition for 'lobby'",
+								"9657,9662": "Cannot convert from [UnknownType CSteamID] to ?",
+								"984,989": "'Lobby' is not a known identifier"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2114.0,
+						"translation.y": 2100.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -369,96 +587,95 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Lobby.cs",
+					"file": "/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 223,
+						"buffer_size": 1875,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "Assets/Scripts/SteamScripts/HLAPI/SteamServerCreator.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4398,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1165,
-								1165
+								775,
+								775
 							]
 						],
 						"settings":
 						{
 							"oops":
 							{
-								"1093,1109": "'LobbyMatchList_t' is not a known identifier",
-								"1110,1121": "Error: String",
-								"114,124": "'Steamworks' is not a known identifier",
-								"1160,1178": "Error: String",
-								"1219,1237": "Cannot convert from 'None' to 'System.Int32'",
-								"1400,1408": "'CSteamID' is not a known identifier",
-								"1424,1440": "'SteamMatchmaking' is not a known identifier",
-								"1441,1456": "'?' does not contain a definition for 'GetLobbyByIndex'",
-								"1463,1464": "'?' does not contain a definition for 'GetLobbyByIndex'",
-								"1538,1550": "Error: String",
-								"1601,1617": "'SteamMatchmaking' is not a known identifier",
-								"1618,1630": "'?' does not contain a definition for 'GetLobbyData'",
-								"1653,1654": "Cannot convert from ? to System.String",
-								"1701,1713": "Cannot convert from ? to [UnknownType CSteamID]",
-								"1778,1786": "'CSteamID' is not a known identifier",
-								"1844,1860": "'SteamMatchmaking' is not a known identifier",
-								"1861,1873": "'?' does not contain a definition for 'GetLobbyData'",
-								"1889,1890": "Cannot convert from ? to System.String",
-								"360,376": "'LobbyMatchList_t' is not a known identifier",
-								"377,378": "'CallResult' is not a known identifier",
-								"594,610": "'LobbyMatchList_t' is not a known identifier",
-								"611,612": "'CallResult' is not a known identifier",
-								"612,618": "'?' does not contain a definition for 'Create'",
-								"636,637": "Cannot convert from ? to [UnknownType CallResult`1]",
-								"740,754": "'SteamAPICall_t' is not a known identifier",
-								"764,780": "'SteamMatchmaking' is not a known identifier",
-								"781,797": "'?' does not contain a definition for 'RequestLobbyList'",
-								"799,800": "'?' does not contain a definition for 'RequestLobbyList'",
-								"830,833": "'CallResult' does not contain a definition for 'Set'",
-								"841,842": "'CallResult' does not contain a definition for 'Set'",
-								"944,960": "'LobbyMatchList_t' is not a known identifier"
+								"103,116": "'MonoBehaviour' is not a known identifier",
+								"1151,1156": "'Input' is not a known identifier",
+								"1157,1170": "'?' does not contain a definition for 'GetButtonDown'",
+								"1179,1180": "Cannot convert from ? to System.Boolean",
+								"1203,1208": "'Debug' is not a known identifier",
+								"1209,1217": "'?' does not contain a definition for 'LogError'",
+								"1256,1257": "'?' does not contain a definition for 'LogError'",
+								"1282,1286": "'AudioSource' does not contain a definition for 'clip'",
+								"1289,1299": "'Microphone' is not a known identifier",
+								"1300,1305": "'?' does not contain a definition for 'Start'",
+								"1334,1335": "'?' does not contain a definition for 'Start'",
+								"1363,1368": "'Input' is not a known identifier",
+								"1369,1382": "'?' does not contain a definition for 'GetButtonDown'",
+								"1391,1392": "Cannot convert from ? to System.Boolean",
+								"1415,1420": "'Debug' is not a known identifier",
+								"1421,1429": "'?' does not contain a definition for 'LogError'",
+								"1465,1466": "'?' does not contain a definition for 'LogError'",
+								"1491,1495": "'AudioSource' does not contain a definition for 'clip'",
+								"1498,1508": "'Microphone' is not a known identifier",
+								"1509,1514": "'?' does not contain a definition for 'Start'",
+								"1541,1542": "'?' does not contain a definition for 'Start'",
+								"1570,1575": "'Input' is not a known identifier",
+								"1576,1589": "'?' does not contain a definition for 'GetButtonDown'",
+								"1598,1599": "Cannot convert from ? to System.Boolean",
+								"1622,1627": "'Debug' is not a known identifier",
+								"1628,1636": "'?' does not contain a definition for 'LogError'",
+								"1672,1673": "'?' does not contain a definition for 'LogError'",
+								"1686,1696": "'Microphone' is not a known identifier",
+								"1697,1700": "'?' does not contain a definition for 'End'",
+								"1710,1711": "'?' does not contain a definition for 'End'",
+								"1739,1744": "'Input' is not a known identifier",
+								"1745,1758": "'?' does not contain a definition for 'GetButtonDown'",
+								"1766,1767": "Cannot convert from ? to System.Boolean",
+								"1790,1795": "'Debug' is not a known identifier",
+								"1796,1804": "'?' does not contain a definition for 'LogError'",
+								"1823,1824": "'?' does not contain a definition for 'LogError'",
+								"1849,1853": "'AudioSource' does not contain a definition for 'Play'",
+								"1855,1856": "'AudioSource' does not contain a definition for 'Play'",
+								"218,229": "'AudioSource' is not a known identifier",
+								"327,338": "'AudioSource' is not a known identifier",
+								"339,340": "'GetComponent' is not a known identifier",
+								"341,342": "Cannot convert from ? to [UnknownType AudioSource]",
+								"352,366": "'StartCoroutine' is not a known identifier",
+								"378,379": "'MicTest' does not contain a definition for 'StartCoroutine'",
+								"438,441": "Could not determine type",
+								"452,462": "'Microphone' is not a known identifier",
+								"463,470": "'?' does not contain a definition for 'devices'",
+								"494,499": "'Debug' is not a known identifier",
+								"500,508": "'?' does not contain a definition for 'LogError'",
+								"522,528": "Error: String",
+								"529,530": "'?' does not contain a definition for 'LogError'",
+								"555,561": "Cannot convert from ? to System.String",
+								"562,563": "Invocation error: ArgumentTypeMismatch",
+								"6,17": "'UnityEngine' is not a known identifier",
+								"611,621": "'Microphone' is not a known identifier",
+								"622,635": "'?' does not contain a definition for 'GetDeviceCaps'",
+								"669,670": "'?' does not contain a definition for 'GetDeviceCaps'",
+								"684,689": "'Debug' is not a known identifier",
+								"690,698": "'?' does not contain a definition for 'LogError'",
+								"746,747": "'?' does not contain a definition for 'LogError'",
+								"827,841": "'WaitForSeconds' is not a known identifier",
+								"844,845": "Cannot convert from ? to System.Object",
+								"911,920": "'GUILayout' is not a known identifier",
+								"921,926": "'?' does not contain a definition for 'Label'",
+								"952,953": "'?' does not contain a definition for 'Label'"
 							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 504.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -484,18 +701,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.469375,
 			1.0
 		],
 		"rows":
@@ -530,6 +740,46 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"lobby",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\Lobby.cs"
+			],
+			[
+				"current",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\CurrentLobby.cs"
+			],
+			[
+				"lobb",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\Lobby.cs"
+			],
+			[
+				"curren",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\CurrentLobby.cs"
+			],
+			[
+				"currentlo",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\CurrentLobby.cs"
+			],
+			[
+				"testscrip",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Tests\\SteamTestScript.cs"
+			],
+			[
+				"create",
+				"Assets\\Scripts\\SteamScripts\\CreateServer.cs"
+			],
+			[
+				"players",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\Player.cs"
+			],
+			[
+				"currentlobb",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\CurrentLobby.cs"
+			],
+			[
+				"testscript",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Tests\\SteamTestScript.cs"
+			],
 			[
 				"collabas",
 				"Editor\\Src\\Collab\\CollabAssets.cpp"
@@ -667,7 +917,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

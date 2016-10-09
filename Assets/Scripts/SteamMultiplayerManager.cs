@@ -25,10 +25,12 @@ public class SteamMultiplayerManager
 	//Class Level Members Start
 
 	///The current lobby, its CSteamID, and its players
-	public CurrentLobby m_Lobby;
+	public CurrentLobby m_Lobby = null;
 
 	//a list of the lobbies from the lobby request
 	public List<Lobby> m_LobbyList = new List<Lobby>();
+
+	public bool DebugTextOn = false;
 
 	//Class Level Members End
 
@@ -85,13 +87,22 @@ public class SteamMultiplayerManager
 	/////////////////////////////////////////////////////////////////////////////
 	// Lobby Chat Messaging
 
-	void OnLobbyChatUpdate(LobbyChatUpdate_t pCallback) 
+    ///Send a message to the lobby
+    public void SendLobbyChatMsg(string message, CSteamID lobby)
+    {
+		byte[] MsgBody = System.Text.Encoding.UTF8.GetBytes(message);
+		SteamMatchmaking.SendLobbyChatMsg(lobby, MsgBody, MsgBody.Length);
+    }
+
+	private void OnLobbyChatUpdate(LobbyChatUpdate_t pCallback) 
 	{
-		Debug.Log("[" + LobbyChatUpdate_t.k_iCallback + " - LobbyChatUpdate] - " + pCallback.m_ulSteamIDLobby + " -- " + pCallback.m_ulSteamIDUserChanged + " -- " + pCallback.m_ulSteamIDMakingChange + " -- " + pCallback.m_rgfChatMemberStateChange);
+		if(DebugTextOn)
+		{
+			Debug.Log("[" + LobbyChatUpdate_t.k_iCallback + " - LobbyChatUpdate] - " + pCallback.m_ulSteamIDLobby + " -- " + pCallback.m_ulSteamIDUserChanged + " -- " + pCallback.m_ulSteamIDMakingChange + " -- " + pCallback.m_rgfChatMemberStateChange);
+		}
 	}
 
-
-	void OnLobbyChatMsg(LobbyChatMsg_t pCallback)
+	private void OnLobbyChatMsg(LobbyChatMsg_t pCallback)
 	{
 		// Debug.Log("[" + LobbyChatMsg_t.k_iCallback + " - LobbyChatMsg] - " + pCallback.m_ulSteamIDLobby + " -- " + pCallback.m_ulSteamIDUser + " -- " + pCallback.m_eChatEntryType + " -- " + pCallback.m_iChatID);
 		CSteamID SteamIDUser;
@@ -106,8 +117,11 @@ public class SteamMultiplayerManager
 		_chat.steamPersonaName = SteamFriends.GetFriendPersonaName(SteamIDUser);
 		_chat.message = System.Text.Encoding.UTF8.GetString(Data);
 		m_Lobby.m_ChatMessages.Add(_chat);
-		Debug.Log("Chat Messages Total: " + m_Lobby.m_ChatMessages.Count + "| Newest Message: " + _chat.message);
-
+		
+		if(DebugTextOn)
+		{
+			Debug.Log("Chat Messages Total: " + m_Lobby.m_ChatMessages.Count + "| Newest Message: " + _chat.message);
+		}
 	}
 
 
@@ -115,13 +129,28 @@ public class SteamMultiplayerManager
 	// Join / Update / Entering Lobbies / Leaving Lobbies
 
 
-	public void CreateLobby(ELobbyType lobbyType, int maxMembers) 
+	public void CreateLobby() 
 	{
-		SteamAPICall_t handle = SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, maxMembers);
+		SteamAPICall_t handle = SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 2);
 		OnLobbyCreatedCallResult.Set(handle);
-		Debug.Log("SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 1) : " + handle);
+		
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 1) : " + handle);
+		}
 	}
 
+	///Gets the number of members in the lobby
+	public int GetNumberOfLobbyMembers(CSteamID lobby)
+	{
+		return SteamMatchmaking.GetNumLobbyMembers(lobby);
+	}
+
+	//get the limit for the given lobby
+	public int GetLobbyMemberLimit(CSteamID lobby)
+	{
+		return SteamMatchmaking.GetLobbyMemberLimit(lobby);
+	}
 
 	private void OnLobbyCreated(LobbyCreated_t pCallback, bool bIOFailure) 
 	{
@@ -129,8 +158,9 @@ public class SteamMultiplayerManager
 		{
 			Debug.Log ("[" + LobbyCreated_t.k_iCallback + " - LobbyCreated] - " + pCallback.m_eResult + " -- " + pCallback.m_ulSteamIDLobby);
 			// //set the lobby to our class level
-			// m_Lobby = (CSteamID)pCallback.m_ulSteamIDLobby;
-			// currentLobby = GetLobbyDataInfo (m_Lobby);
+			// m_Lobby = ;
+			// currentLobby = GetLobbyDataInfo (
+			m_Lobby.lobby = (CSteamID)pCallback.m_ulSteamIDLobby;
 		}
 		else
 		{
@@ -142,7 +172,11 @@ public class SteamMultiplayerManager
 	public void SetLobbyData(CSteamID lobby, string name, string summary)
 	{
 		SteamMatchmaking.SetLobbyData (lobby, name, summary);
-		Debug.Log("SteamMatchmaking.SetLobbyData() : " + name + " : " + summary);
+		
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamMatchmaking.SetLobbyData() : " + name + " : " + summary);
+		}
 	}
 
 	//will be called when someone enters/leaves/updates lobby data/ joins the game
@@ -151,6 +185,9 @@ public class SteamMultiplayerManager
 	{
 		Debug.Log ("Lobby Update: SteamIDMember - " + pCallback.m_ulSteamIDMember
 			+ " - Success: " + pCallback.m_bSuccess + " - Lobby: " + pCallback.m_ulSteamIDLobby);
+
+		//update the player list here
+
 	}
 
 	///<summary>
@@ -172,8 +209,11 @@ public class SteamMultiplayerManager
 	{
 		SteamAPICall_t handle = SteamMatchmaking.JoinLobby(_Lobby);
 		OnLobbyEnterCallResult.Set(handle);
-		Debug.Log("SteamMatchmaking.JoinLobby(" + _Lobby + ") : " + handle);
-
+		
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamMatchmaking.JoinLobby(" + _Lobby + ") : " + handle);
+		}
 	}
 
 	//called when a user enters the lobby. 
@@ -187,7 +227,8 @@ public class SteamMultiplayerManager
 			//assign the joined lobby to our currentlobby object
 			m_Lobby.lobbyName = SteamMatchmaking.GetLobbyData ((CSteamID)pCallback.m_ulSteamIDLobby, "name");
 			m_Lobby.lobby = (CSteamID)pCallback.m_ulSteamIDLobby;
-
+			Lobby LobbyData = GetLobbyDataInfo(m_Lobby.lobby);
+			m_Lobby.lobbyName = LobbyData.name;
 		}
 		else
 		{
@@ -195,6 +236,23 @@ public class SteamMultiplayerManager
 		}
 
 	}
+
+	/////////////////////////////////////////////////////////////////////////////
+	// Lobby information
+
+	///returns the CSteamID of the current lobby owner
+	public CSteamID GetLobbyOwnerId(CSteamID lobby)
+	{
+		return SteamMatchmaking.GetLobbyOwner(lobby);
+	}
+
+	///returns the lobby owners Steam persona
+	public string GetLobbyOwnerPersona(CSteamID owner)
+	{
+		CSteamID _owner = GetLobbyOwnerId(owner);
+		return SteamFriends.GetFriendPersonaName(_owner);
+	}
+
 
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -207,7 +265,11 @@ public class SteamMultiplayerManager
 	{
 		SteamAPICall_t handle = SteamMatchmaking.RequestLobbyList();
 		OnLobbyMatchListCallResult.Set(handle);
-		//Debug.Log("SteamMatchmaking.RequestLobbyList() : " + handle);
+		
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamMatchmaking.RequestLobbyList() : " + handle);
+		}
 	}
 
 	private void OnLobbyMatchList(LobbyMatchList_t pCallback, bool bIOFailure) 
@@ -216,6 +278,7 @@ public class SteamMultiplayerManager
 		if (bIOFailure == false) 
 		{
 			Debug.Log ("[" + LobbyMatchList_t.k_iCallback + " - LobbyMatchList] - " + pCallback.m_nLobbiesMatching);
+			
 			for (int i = 0; i < (int)pCallback.m_nLobbiesMatching; i++) 
 			{
 				GetLobbyByIndex (i);
@@ -231,7 +294,11 @@ public class SteamMultiplayerManager
 	public void GetLobbyByIndex(int index)
 	{
 		CSteamID m_LobbyValue = SteamMatchmaking.GetLobbyByIndex(index);
-		Debug.Log ("SteamMatchmaking.SteamMatchmaking.GetLobbyByIndex(0) : " + m_LobbyValue);
+
+		if(DebugTextOn)
+		{
+			Debug.Log ("SteamMatchmaking.SteamMatchmaking.GetLobbyByIndex(0) : " + m_LobbyValue);
+		}
 
 		Lobby _lobby = new Lobby ();
 		_lobby.name = SteamMatchmaking.GetLobbyData (m_LobbyValue, "name");
