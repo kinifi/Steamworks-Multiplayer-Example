@@ -12,6 +12,8 @@ public class SteamTestScript : MonoBehaviour {
 
 	private bool hasLobby = false;
 
+	public GameObject m_Player, SpawnCharacter;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -41,6 +43,26 @@ public class SteamTestScript : MonoBehaviour {
 			hasLobby = false;
 			SteamMultiplayerManager.Instance.LeaveLobby(SteamMultiplayerManager.Instance.m_Lobby.lobby);
 		}
+
+		if(GUILayout.Button("Set Lobby Data"))
+		{
+			// SetLobbyData(CSteamID lobby, string name, string summary)
+			SteamMultiplayerManager.Instance.SetLobbyData(SteamMultiplayerManager.Instance.m_Lobby.lobby, "Kinifi", "Kinifi");
+		}		
+
+
+		//create a player if we dont have one already
+		if(m_Player == null)
+		{
+			if(GUILayout.Button("Create Player"))
+			{
+				GameObject _player;
+				_player = Instantiate(SpawnCharacter, new Vector3(0,0,0), Quaternion.identity) as GameObject;
+				_player.name = "player";
+				m_Player = _player;
+			}
+		}
+
 	}
 
 	private void MainMenu()
