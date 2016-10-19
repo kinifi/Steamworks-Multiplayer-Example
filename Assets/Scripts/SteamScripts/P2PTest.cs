@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Steamworks;
 using System.Text;
+using TinyJSON;
 
 //Helper gist: https://gist.github.com/rlabrecque/c93201041cb0ccee99eed0e9e4a7d45f
 
@@ -66,7 +67,7 @@ public class P2PTest : MonoBehaviour {
 
 		if(GUILayout.Button("Test Packet"))
 		{
-			SendUpdate("hi");
+			// SendUpdate("hi");
 		}
 		GUILayout.EndArea();
 	}
@@ -75,32 +76,39 @@ public class P2PTest : MonoBehaviour {
 	/// Sends a json string to all the players
 	/// </summary>
 	/// <param name="json">Json.</param>
-	public void SendUpdate(string json)
+	public void SendUpdate(int ObjectID, string ActionMethod, Vector3 NewLocation, float NewVelocity, string NewChat)
 	{
 		//make sure we are connected
-		// if (m_hasConnected == false)
-			// return;
+		if (m_hasConnected == false)
+			return;
 
-		// for (int i = 0; i < m_Players.Count; i++) 
-		// {
-		// 	byte[] toBytes = Encoding.ASCII.GetBytes(json);
-		// 	//SendP2PPacket(CSteamID steamIDRemote, byte[] pubData, uint cubData, EP2PSend eP2PSendType, int nChannel = 0)
-		// 	SteamNetworking.SendP2PPacket(m_Players[i].lobbyID, toBytes, (uint)toBytes.Length, Steamworks.EP2PSend.k_EP2PSendReliable, 0);
-		// }
+		//assemble the data to send to users
+		MMAction NewAction = new MMAction();
+		NewAction.ObjectID = ObjectID;
+		NewAction.ActionMethod = ActionMethod;
+		NewAction.NewLocation = NewLocation;
+		NewAction.Velocity = NewVelocity;
+		NewAction.Chat = NewChat;
 
-		//TODO: Compare the data sending before sending it. Otherwise we could be sending
-		// more than we need to.
-		//send the data to every player
-		/*
-		for (int i = 0; i < max; i++) 
+		//convert to json
+		var PacketData = JSON.Dump( NewAction, true );
+
+		if(SteamMultiplayerManager.Instance.DebugTextOn)
 		{
-			//TODO: Compress the data before sending
-			byte[] toBytes = Encoding.ASCII.GetBytes(json);
-
-			//TODO come up with a data structure to send 
-			SteamNetworking.SendP2PPacket(data goes here);
+			Debug.Log("" + m_ID + ": " + PacketData);
 		}
-		*/
+
+		for (int i = 0; i < SteamMultiplayerManager.Instance.m_PlayerList.Count; i++) 
+		{
+			if(SteamMultiplayerManager.Instance.GetSteamPersonaName().ToLower() != SteamMultiplayerManager.Instance.m_PlayerList[i].steamPersonaName.ToLower())
+			{
+				//convert our json to bytes
+				byte[] packetBytes = Encoding.ASCII.GetBytes(PacketData);
+				//send the packets to the user
+				SteamNetworking.SendP2PPacket(m_CurrentPlayer.lobbyID, packetBytes, (uint)packetBytes.Length, Steamworks.EP2PSend.k_EP2PSendReliable, 0);
+			}
+
+		}
 
 
 	}
