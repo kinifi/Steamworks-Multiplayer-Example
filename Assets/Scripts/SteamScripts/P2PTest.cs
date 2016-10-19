@@ -10,9 +10,9 @@ using TinyJSON;
 
 public class P2PTest : MonoBehaviour {
 
-	private CallResult<P2PSessionRequest_t> OnP2PSessionRequestResult;
-
 	private CallResult<P2PSessionConnectFail_t> OnP2PSessionConnectFailResult;
+
+	private CallResult<P2PSessionRequest_t> m_P2PSessionRequest;
 
 	private Player m_CurrentPlayer;
 
@@ -23,12 +23,11 @@ public class P2PTest : MonoBehaviour {
 
 	// Use this for initialization
 	public void Start () {
-	
-		//register the p2prequest callresult
-		OnP2PSessionRequestResult = CallResult<P2PSessionRequest_t>.Create(OnP2PSessionRequest);
 
 		//register the fail connect callresult
 		OnP2PSessionConnectFailResult = CallResult<P2PSessionConnectFail_t>.Create(OnP2PSessionConnectFail);
+
+		m_P2PSessionRequest = CallResult<P2PSessionRequest_t>.Create(OnP2PSessionRequest);
 
 		//make sure we have a lobby
 		if(SteamMultiplayerManager.Instance.m_Lobby.lobby != null)
@@ -37,6 +36,11 @@ public class P2PTest : MonoBehaviour {
 			GetPlayer();
 			//get a unique id for this object
 			m_ID = SteamMultiplayerManager.Instance.GenerateUniqueID();
+
+			if(SteamMultiplayerManager.Instance.DebugTextOn)
+			{
+				Debug.Log("ID: " + m_ID + " | Player: " + m_CurrentPlayer.steamPersonaName);
+			}
 		}
 
 	}
@@ -113,19 +117,29 @@ public class P2PTest : MonoBehaviour {
 
 	}
 
+	private void OnP2PSessionRequest(P2PSessionRequest_t pCallback, bool bIOFailure) 
+	{
+		Debug.Log("[" + P2PSessionRequest_t.k_iCallback + " - P2PSessionRequest] - " + pCallback.m_steamIDRemote);
+
+		bool ret = SteamNetworking.AcceptP2PSessionWithUser(pCallback.m_steamIDRemote);
+		Debug.Log("SteamNetworking.AcceptP2PSessionWithUser(" + pCallback.m_steamIDRemote + ") - " + ret);
+
+		// m_RemoteSteamId = pCallback.m_steamIDRemote;
+	}
+
 	public void ReadP2PPacket(byte[] pubDest, uint cubDest, uint pcubMsgSize,CSteamID psteamIDRemote, int nChannel = 0) 
 	{
 		Debug.Log("ReadPacket: " + pubDest + " | " + cubDest + " | " + pcubMsgSize + " | " + psteamIDRemote + " | " + nChannel);
 	}
 
-	private void OnP2PSessionRequest(P2PSessionRequest_t pCallback, bool bIOFailure)
-	{
-		Debug.Log("OnP2PSessionRequest: Acct: %d " + pCallback.m_steamIDRemote.GetAccountID());
-		// always accept packets
-		// the packet itself will come through when you call m_SteamNetworking->ReadP2PPacket()
-		SteamNetworking.AcceptP2PSessionWithUser (pCallback.m_steamIDRemote);
+	// private void OnP2PSessionRequest(P2PSessionRequest_t pCallback, bool bIOFailure)
+	// {
+	// 	Debug.Log("OnP2PSessionRequest: Acct: %d " + pCallback.m_steamIDRemote.GetAccountID());
+	// 	// always accept packets
+	// 	// the packet itself will come through when you call m_SteamNetworking->ReadP2PPacket()
+	// 	SteamNetworking.AcceptP2PSessionWithUser (pCallback.m_steamIDRemote);
 
-	}
+	// }
 
 	private void OnP2PSessionConnectFail(P2PSessionConnectFail_t pCallback, bool bIOFailure)
 	{
