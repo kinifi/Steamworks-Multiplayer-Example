@@ -156,7 +156,16 @@
 			"file": "Assets/Scripts/SteamScripts/P2PTest.cs",
 			"settings":
 			{
-				"buffer_size": 4449,
+				"buffer_size": 5073,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
+			"settings":
+			{
+				"buffer_size": 214,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -169,7 +178,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 78.0,
+		"height": 400.0,
 		"last_filter": "",
 		"selected_items":
 		[
@@ -194,7 +203,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 374.0
+		"width": 472.0
 	},
 	"console":
 	{
@@ -303,7 +312,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -318,6 +327,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"SteamIDRemote",
 			"OnP2PSessionRequest",
 			"GetPlayer",
 			"m_PlayerList",
@@ -560,7 +570,7 @@
 						"translation.y": 4229.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -569,15 +579,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4449,
+						"buffer_size": 5073,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								424,
-								424
+								591,
+								591
 							]
 						],
 						"settings":
@@ -587,79 +597,44 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										4447,
-										4448
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
+								{
+								},
+								"unmatched":
 								{
 									"1":
 									[
 										283,
 										284
 									]
-								},
-								"unmatched":
-								{
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -669,32 +644,56 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_c_define_content"
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
 							"oops":
 							{
+								"1111,1134": "Expression is always 'true'",
 								"19,24": "Using directive is not used by code and can be removed safely.",
-								"1968,1972": "Parameter 'json' not found",
-								"2016,2024": "'ObjectID' should start with a lower case letter. (Rule 'Parameters')",
-								"2033,2045": "'ActionMethod' should start with a lower case letter. (Rule 'Parameters')",
-								"2055,2066": "'NewLocation' should start with a lower case letter. (Rule 'Parameters')",
-								"2074,2085": "'NewVelocity' should start with a lower case letter. (Rule 'Parameters')",
-								"2094,2101": "'NewChat' should start with a lower case letter. (Rule 'Parameters')",
-								"2158,2159": "Comparison with 'false' is redundant",
-								"2221,2229": "Use 'var' keyword",
-								"3079,3089": "Qualifier is redundant",
-								"3119,3120": "Argument value is redundant",
-								"3586,3599": "Method 'ReadP2PPacket' can be made static.",
-								"3607,3614": "Parameter can be IEnumerable",
-								"3621,3628": "Parameter can be IComparable",
-								"3635,3646": "Parameter can be IComparable",
-								"3656,3670": "Parameter can be IEquatable",
-								"3676,3684": "Parameter can be IComparable",
-								"45,50": "Using directive is not used by code and can be removed safely.",
-								"516,530": "Name should have prefix '_'. (Rule 'Fields').",
-								"533,538": "Initializing field by default value is redundant",
-								"79,84": "Using directive is not used by code and can be removed safely.",
-								"884,907": "Expression is always 'true'"
+								"2236,2240": "Parameter 'json' not found",
+								"2284,2292": "'ObjectID' should start with a lower case letter. (Rule 'Parameters')",
+								"2301,2313": "'ActionMethod' should start with a lower case letter. (Rule 'Parameters')",
+								"2323,2334": "'NewLocation' should start with a lower case letter. (Rule 'Parameters')",
+								"2342,2353": "'NewVelocity' should start with a lower case letter. (Rule 'Parameters')",
+								"2362,2369": "'NewChat' should start with a lower case letter. (Rule 'Parameters')",
+								"2426,2427": "Comparison with 'false' is redundant",
+								"2497,2505": "Use 'var' keyword",
+								"3355,3365": "Qualifier is redundant",
+								"3395,3396": "Argument value is redundant",
+								"3910,3923": "Method 'ReadP2PPacket' can be made static.",
+								"3931,3938": "Parameter can be IEnumerable",
+								"3945,3952": "Parameter can be IComparable",
+								"3959,3970": "Parameter can be IComparable",
+								"3980,3994": "Parameter can be IEquatable",
+								"4000,4008": "Parameter can be IComparable",
+								"648,662": "Name should have prefix '_'. (Rule 'Fields').",
+								"665,670": "Initializing field by default value is redundant",
+								"79,84": "Using directive is not used by code and can be removed safely."
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
@@ -704,6 +703,108 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

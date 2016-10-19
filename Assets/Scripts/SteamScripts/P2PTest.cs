@@ -14,6 +14,10 @@ public class P2PTest : MonoBehaviour {
 
 	private CallResult<P2PSessionRequest_t> m_P2PSessionRequest;
 
+	private Callback<SocketStatusCallback_t> m_SocketStatusCallback_t;
+
+	private List<CSteamID> m_AcceptedIDs = new List<CSteamID>();
+
 	private Player m_CurrentPlayer;
 
 	//check to see if we are even connected. 
@@ -28,6 +32,8 @@ public class P2PTest : MonoBehaviour {
 		OnP2PSessionConnectFailResult = CallResult<P2PSessionConnectFail_t>.Create(OnP2PSessionConnectFail);
 
 		m_P2PSessionRequest = CallResult<P2PSessionRequest_t>.Create(OnP2PSessionRequest);
+
+		m_SocketStatusCallback_t = Callback<SocketStatusCallback_t>.Create(OnSocketStatusCallback);
 
 		//make sure we have a lobby
 		if(SteamMultiplayerManager.Instance.m_Lobby.lobby != null)
@@ -58,7 +64,7 @@ public class P2PTest : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 
 
@@ -71,7 +77,7 @@ public class P2PTest : MonoBehaviour {
 
 		if(GUILayout.Button("Test Packet"))
 		{
-			// SendUpdate("hi");
+			SendUpdate(m_ID, "none", transform.position, 0, "none");
 		}
 		GUILayout.EndArea();
 	}
@@ -84,7 +90,9 @@ public class P2PTest : MonoBehaviour {
 	{
 		//make sure we are connected
 		if (m_hasConnected == false)
+		{
 			return;
+		}
 
 		//assemble the data to send to users
 		MMAction NewAction = new MMAction();
@@ -122,9 +130,10 @@ public class P2PTest : MonoBehaviour {
 		Debug.Log("[" + P2PSessionRequest_t.k_iCallback + " - P2PSessionRequest] - " + pCallback.m_steamIDRemote);
 
 		bool ret = SteamNetworking.AcceptP2PSessionWithUser(pCallback.m_steamIDRemote);
-		Debug.Log("SteamNetworking.AcceptP2PSessionWithUser(" + pCallback.m_steamIDRemote + ") - " + ret);
 
-		// m_RemoteSteamId = pCallback.m_steamIDRemote;
+		Debug.Log("SteamNetworking.AcceptP2PSessionWithUser(" + pCallback.m_steamIDRemote + ") - " + ret);
+		//add this to the list of id's we have accepted
+		m_AcceptedIDs.Add(pCallback.m_steamIDRemote);
 	}
 
 	public void ReadP2PPacket(byte[] pubDest, uint cubDest, uint pcubMsgSize,CSteamID psteamIDRemote, int nChannel = 0) 
@@ -144,6 +153,10 @@ public class P2PTest : MonoBehaviour {
 	private void OnP2PSessionConnectFail(P2PSessionConnectFail_t pCallback, bool bIOFailure)
 	{
 		Debug.Log("OnP2PSessionConnectFail: Acct: %d - %d " + pCallback.m_steamIDRemote.GetAccountID() + " | " + pCallback.m_eP2PSessionError);
+	}
+
+	private void OnSocketStatusCallback(SocketStatusCallback_t pCallback) {
+		Debug.Log("[" + SocketStatusCallback_t.k_iCallback + " - SocketStatusCallback] - " + pCallback.m_hSocket + " -- " + pCallback.m_hListenSocket + " -- " + pCallback.m_steamIDRemote + " -- " + pCallback.m_eSNetSocketState);
 	}
 
 
