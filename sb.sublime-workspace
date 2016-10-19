@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"debug",
+				"DebugTextOn\tbool"
+			],
+			[
+				"Steammu",
+				"SteamMultiplayerManager\tSteamMultiplayerManager"
+			],
+			[
 				"Lobby",
 				"LobbyMenu()\tvoid"
 			],
@@ -115,25 +123,16 @@
 			"file": "Assets/Scripts/SteamMultiplayerManager.cs",
 			"settings":
 			{
-				"buffer_size": 12037,
+				"buffer_size": 13002,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
+			"file": "Assets/Scripts/SteamScripts/P2PTest.cs",
 			"settings":
 			{
-				"buffer_size": 10687,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
-			"settings":
-			{
-				"buffer_size": 214,
+				"buffer_size": 3616,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -199,6 +198,7 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Chris/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
 		"/C/Users/Chris/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs",
 		"/C/Users/Chris/Documents/GitHub/Steamworks-Multiplayer-Example/sb.sublime-project",
 		"/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
@@ -291,6 +291,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GetPlayer",
+			"m_PlayerList",
+			"m_hasConnected",
 			"for",
 			"LobbyChatMessageValue",
 			"player",
@@ -386,7 +389,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -395,15 +398,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12037,
+						"buffer_size": 13002,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3057,
-								3057
+								10321,
+								10321
 							]
 						],
 						"settings":
@@ -413,69 +416,34 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										10424,
+										10425
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										10028,
+										10029
+									]
 								},
 								"unmatched":
 								{
-									"1":
-									[
-										799,
-										800
-									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -485,17 +453,65 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
 							"oops":
 							{
-								"10445,10450": "Use 'var' keyword",
-								"10650,10666": "Method 'GetLobbyDataInfo' can be made static.",
-								"10688,10693": "Use 'var' keyword",
+								"10046,10052": "Use 'var' keyword",
+								"10625,10640": "Method 'GetLobbyOwnerId' can be made static.",
 								"1096,1108": "after '_' a lower letter should follow. (Rule 'Fields')",
-								"11395,11403": "Redundant condition check before assignment",
+								"11453,11454": "Comparison with 'false' is redundant",
 								"1196,1207": "'DebugTextOn' should start with a lower case letter. (Rule 'Fields')",
+								"11979,11984": "Use 'var' keyword",
 								"1210,1215": "Initializing field by default value is redundant",
+								"12184,12200": "Method 'GetLobbyDataInfo' can be made static.",
+								"12222,12227": "Use 'var' keyword",
+								"12929,12937": "Redundant condition check before assignment",
 								"1318,1319": "Initializing field by default value is redundant",
 								"1428,1442": "after '_' a lower letter should follow. (Rule 'Fields')",
 								"1504,1521": "after '_' a lower letter should follow. (Rule 'Fields')",
@@ -512,43 +528,43 @@
 								"618,623": "Using directive is not used by code and can be removed safely.",
 								"640,645": "Using directive is not used by code and can be removed safely.",
 								"654,659": "Using directive is not used by code and can be removed safely.",
-								"7047,7057": "Method 'LeaveLobby' can be made static.",
 								"714,719": "Using directive is not used by code and can be removed safely.",
-								"7319,7325": "no known errors.",
-								"7731,7732": "Comparison with 'false' is redundant",
-								"8520,8527": "Expression is always 'true'",
-								"8827,8828": "Assignment is redundant",
+								"7407,7413": "no known errors.",
+								"7819,7820": "Comparison with 'false' is redundant",
+								"8629,8648": "Method 'GetSteamPersonaName' can be made static.",
+								"8825,8834": "Variable could be moved to a nested scope",
 								"906,913": "after '_' a lower letter should follow. (Rule 'Fields')",
-								"9091,9106": "Method 'GetLobbyOwnerId' can be made static.",
+								"9143,9147": "Use 'var' keyword",
 								"916,920": "Initializing field by default value is redundant",
-								"991,1002": "after '_' a lower letter should follow. (Rule 'Fields')",
-								"9919,9920": "Comparison with 'false' is redundant"
+								"9202,9205": "Assignment is redundant",
+								"9758,9765": "Expression is always 'true'",
+								"991,1002": "after '_' a lower letter should follow. (Rule 'Fields')"
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1030.0,
+						"translation.y": 4229.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Assets/Scripts/SteamScripts/CreateServer.cs",
+					"file": "Assets/Scripts/SteamScripts/P2PTest.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10687,
+						"buffer_size": 3616,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3245,
-								3279
+								1583,
+								1583
 							]
 						],
 						"settings":
@@ -560,126 +576,8 @@
 								{
 									"1":
 									[
-										3330,
-										3331
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										3226,
-										3227
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 1225.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								211,
-								211
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										212,
-										213
+										1585,
+										1586
 									]
 								},
 								"icon":
@@ -694,8 +592,8 @@
 								{
 									"1":
 									[
-										129,
-										130
+										1578,
+										1579
 									]
 								},
 								"unmatched":
@@ -704,51 +602,6 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -758,15 +611,78 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content"
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
-							"syntax": "Packages/C#/C#.sublime-syntax"
+							"oops":
+							{
+								"126,131": "Using directive is not used by code and can be removed safely.",
+								"19,24": "Using directive is not used by code and can be removed safely.",
+								"1908,1912": "Parameter 'json' is never used",
+								"2774,2787": "Method 'ReadP2PPacket' can be made static.",
+								"2795,2802": "Parameter can be IEnumerable",
+								"2809,2816": "Parameter can be IComparable",
+								"2823,2834": "Parameter can be IComparable",
+								"2844,2858": "Parameter can be IEquatable",
+								"2864,2872": "Parameter can be IComparable",
+								"45,50": "Using directive is not used by code and can be removed safely.",
+								"506,520": "Name should have prefix '_'. (Rule 'Fields').",
+								"523,528": "Initializing field by default value is redundant",
+								"79,84": "Using directive is not used by code and can be removed safely.",
+								"920,943": "Expression is always 'true'"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

@@ -13,13 +13,12 @@ public class P2PTest : MonoBehaviour {
 
 	private CallResult<P2PSessionConnectFail_t> OnP2PSessionConnectFailResult;
 
-	/// <summary>
-	/// A list of the players in the game
-	/// </summary>
-	public List<Player> m_Players = new List<Player>();
+	private Player m_CurrentPlayer;
 
 	//check to see if we are even connected. 
 	public bool m_hasConnected = false;
+
+	private int m_ID;
 
 	// Use this for initialization
 	public void Start () {
@@ -30,11 +29,27 @@ public class P2PTest : MonoBehaviour {
 		//register the fail connect callresult
 		OnP2PSessionConnectFailResult = CallResult<P2PSessionConnectFail_t>.Create(OnP2PSessionConnectFail);
 
+		//make sure we have a lobby
+		if(SteamMultiplayerManager.Instance.m_Lobby.lobby != null)
+		{
+			m_hasConnected = true;
+			GetPlayer();
+			//get a unique id for this object
+			m_ID = SteamMultiplayerManager.Instance.GenerateUniqueID();
+		}
 
-		GetPlayersInLobby (SteamMultiplayerManager.Instance.m_Lobby.lobby);
+	}
 
-		// Debug.Log (SteamMultiplayerManager.Instance.m_Lobby.lobby);
-
+	private void GetPlayer()
+	{
+		for (int i = 0; i < SteamMultiplayerManager.Instance.m_PlayerList.Count; i++) 
+		{
+			if(SteamMultiplayerManager.Instance.GetSteamPersonaName().ToLower() == SteamMultiplayerManager.Instance.m_PlayerList[i].steamPersonaName.ToLower())
+			{
+				Debug.Log("Found My Player Name");
+				m_CurrentPlayer = SteamMultiplayerManager.Instance.m_PlayerList[i];
+			}
+		}
 	}
 	
 	// Update is called once per frame
@@ -44,27 +59,7 @@ public class P2PTest : MonoBehaviour {
 
 	}
 
-	public void GetPlayersInLobby(CSteamID lobby)
-	{
-		//gets the number of lobby members
-		int numberOfLobbyMembers = SteamMatchmaking.GetNumLobbyMembers(lobby);
-		Debug.Log("Number of Lobby Members: " + numberOfLobbyMembers);
-		//cycle through every player and get their steam ID's
-		for (int i = 0; i < numberOfLobbyMembers; i++) 
-		{
-			//create a new player
-			Player _player = new Player();
-			_player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(lobby, i);
-			Debug.Log (_player.lobbyID);
-			//SteamUser.GetSteamID ();
-			//not sure if this is right
-			//_player.steamPersonaName = SteamFriends.GetFriendPersonaName(lobby);
-			m_Players.Add (_player);
-		}
-
-
-	}
-
+	
 	void OnGUI()
 	{
 		GUILayout.BeginArea(new Rect(Screen.width/2, 0, 200, 200));
@@ -86,12 +81,12 @@ public class P2PTest : MonoBehaviour {
 		// if (m_hasConnected == false)
 			// return;
 
-		for (int i = 0; i < m_Players.Count; i++) 
-		{
-			byte[] toBytes = Encoding.ASCII.GetBytes(json);
-			//SendP2PPacket(CSteamID steamIDRemote, byte[] pubData, uint cubData, EP2PSend eP2PSendType, int nChannel = 0)
-			SteamNetworking.SendP2PPacket(m_Players[i].lobbyID, toBytes, (uint)toBytes.Length, Steamworks.EP2PSend.k_EP2PSendReliable, 0);
-		}
+		// for (int i = 0; i < m_Players.Count; i++) 
+		// {
+		// 	byte[] toBytes = Encoding.ASCII.GetBytes(json);
+		// 	//SendP2PPacket(CSteamID steamIDRemote, byte[] pubData, uint cubData, EP2PSend eP2PSendType, int nChannel = 0)
+		// 	SteamNetworking.SendP2PPacket(m_Players[i].lobbyID, toBytes, (uint)toBytes.Length, Steamworks.EP2PSend.k_EP2PSendReliable, 0);
+		// }
 
 		//TODO: Compare the data sending before sending it. Otherwise we could be sending
 		// more than we need to.

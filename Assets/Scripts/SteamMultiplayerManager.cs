@@ -269,6 +269,42 @@ public class SteamMultiplayerManager
 	/////////////////////////////////////////////////////////////////////////////
 	// Get / Update Player List
 
+	public string GetSteamPersonaName()
+	{
+		return SteamFriends.GetPersonaName();
+	}
+
+	public Texture2D GetSteamProfileImage(CSteamID userID)
+	{
+		int FriendAvatar = SteamFriends.GetMediumFriendAvatar(userID);
+
+		Texture2D m_MediumAvatar;
+
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamFriends.GetMediumFriendAvatar(" + userID + ") - " + FriendAvatar);
+		}
+
+		uint ImageWidth;
+		uint ImageHeight;
+		bool ret = SteamUtils.GetImageSize(FriendAvatar, out ImageWidth, out ImageHeight);
+
+		if (ret && ImageWidth > 0 && ImageHeight > 0) {
+			byte[] Image = new byte[ImageWidth * ImageHeight * 4];
+
+			ret = SteamUtils.GetImageRGBA(FriendAvatar, Image, (int)(ImageWidth * ImageHeight * 4));
+			m_MediumAvatar = new Texture2D((int)ImageWidth, (int)ImageHeight, TextureFormat.RGBA32, false, true);
+			m_MediumAvatar.LoadRawTextureData(Image);
+			m_MediumAvatar.Apply();
+
+			return m_MediumAvatar;
+		}
+
+		//return null because Steam didn't give us an image
+		return null;
+		
+	}
+
 	public void GetPlayerList()
 	{
         //clear the current player list
@@ -287,7 +323,7 @@ public class SteamMultiplayerManager
                 Player _player = new Player();
                 _player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(m_Lobby.lobby, i);
                 _player.steamPersonaName = SteamFriends.GetFriendPersonaName(_player.lobbyID);
-                _player.UniqueID = GenerateUniqueID();
+                // _player.UniqueID = GenerateUniqueID();
                 //add them to the player list
                 m_PlayerList.Add(_player);
 
