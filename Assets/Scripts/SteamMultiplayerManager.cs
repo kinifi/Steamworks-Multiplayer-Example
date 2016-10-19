@@ -30,7 +30,14 @@ public class SteamMultiplayerManager
 	//a list of the lobbies from the lobby request
 	public List<Lobby> m_LobbyList = new List<Lobby>();
 
+	//a list of all the players in the current lobby
+	public List<Player> m_PlayerList = new List<Player>();
+
+	//Do you want to display some callback debugging?
 	public bool DebugTextOn = false;
+
+	//A gameobject ID value that increments to give users unique numbers
+	private int m_GameObjectID = 0;
 
 	//Class Level Members End
 
@@ -83,6 +90,18 @@ public class SteamMultiplayerManager
 		m_LobbyChatUpdate = Callback<LobbyChatUpdate_t>.Create(OnLobbyChatUpdate);
 
     }
+
+	/////////////////////////////////////////////////////////////////////////////
+	// GameObject ID Creation
+
+    /// <summary>
+    /// Generates a unique ID for a single object.
+    /// </summary>
+	public int CreateNewID()
+	{
+		return m_GameObjectID++;
+	}
+
 
 	/////////////////////////////////////////////////////////////////////////////
 	// Lobby Chat Messaging
@@ -238,8 +257,25 @@ public class SteamMultiplayerManager
 
 	}
 
+
+	/////////////////////////////////////////////////////////////////////////////
+	// Get / Update Player List
+
+	public void GetPlayerList()
+	{
+		// get if we are in a lobby or not
+		if(m_Lobby != null)
+		{
+			// gets all the players and returns them to the PlayerList
+			
+		}
+	}
+
+	// m_PlayerList
+
 	/////////////////////////////////////////////////////////////////////////////
 	// Lobby information
+
 
 	///returns the CSteamID of the current lobby owner
 	public CSteamID GetLobbyOwnerId(CSteamID lobby)

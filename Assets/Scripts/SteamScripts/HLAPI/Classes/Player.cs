@@ -7,4 +7,5 @@ public class Player
 {
 	public string steamPersonaName;
 	public CSteamID lobbyID;
+	public int UniqueID;
 }

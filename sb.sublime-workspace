@@ -115,18 +115,18 @@
 			"file": "Assets/Scripts/SteamMultiplayerManager.cs",
 			"settings":
 			{
-				"buffer_size": 10328,
+				"buffer_size": 11229,
 				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
+			"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
 			"settings":
 			{
-				"buffer_size": 1875,
+				"buffer_size": 214,
 				"encoding": "UTF-8 with BOM",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -183,14 +183,11 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts",
-		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI"
+		"/C/Users/Chris/Documents/GitHub/Steamworks-Multiplayer-Example"
 	],
 	"file_history":
 	[
+		"/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/CreateServer.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Tests/SteamTestScript.cs",
 		"/C/Users/chrisf/Documents/GitHub/Steamworks-Multiplayer-Example/Assets/Scripts/SteamScripts/HLAPI/Classes/CurrentLobby.cs",
@@ -265,7 +262,7 @@
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -280,6 +277,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"player",
 			"OnLobbyMatchList",
 			"OnLobbyMatchListCallResult",
 			"m_lobby",
@@ -370,7 +368,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -379,19 +377,108 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10328,
+						"buffer_size": 11229,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6490,
-								6499
+								10446,
+								10446
 							]
 						],
 						"settings":
 						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										10583,
+										10584
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										10445,
+										10446
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
 							"oops":
 							{
 								"1014,1019": "'Lobby' is not a known identifier",
@@ -576,109 +663,131 @@
 								"9657,9662": "Cannot convert from [UnknownType CSteamID] to ?",
 								"984,989": "'Lobby' is not a known identifier"
 							},
-							"syntax": "Packages/C#/C#.sublime-syntax"
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2100.0,
+						"translation.y": 4652.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/D/Unity Projects/audioDevicetest/Assets/MicTest.cs",
+					"file": "Assets/Scripts/SteamScripts/HLAPI/Classes/Player.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1875,
+						"buffer_size": 214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								775,
-								775
+								211,
+								211
 							]
 						],
 						"settings":
 						{
-							"oops":
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
 							{
-								"103,116": "'MonoBehaviour' is not a known identifier",
-								"1151,1156": "'Input' is not a known identifier",
-								"1157,1170": "'?' does not contain a definition for 'GetButtonDown'",
-								"1179,1180": "Cannot convert from ? to System.Boolean",
-								"1203,1208": "'Debug' is not a known identifier",
-								"1209,1217": "'?' does not contain a definition for 'LogError'",
-								"1256,1257": "'?' does not contain a definition for 'LogError'",
-								"1282,1286": "'AudioSource' does not contain a definition for 'clip'",
-								"1289,1299": "'Microphone' is not a known identifier",
-								"1300,1305": "'?' does not contain a definition for 'Start'",
-								"1334,1335": "'?' does not contain a definition for 'Start'",
-								"1363,1368": "'Input' is not a known identifier",
-								"1369,1382": "'?' does not contain a definition for 'GetButtonDown'",
-								"1391,1392": "Cannot convert from ? to System.Boolean",
-								"1415,1420": "'Debug' is not a known identifier",
-								"1421,1429": "'?' does not contain a definition for 'LogError'",
-								"1465,1466": "'?' does not contain a definition for 'LogError'",
-								"1491,1495": "'AudioSource' does not contain a definition for 'clip'",
-								"1498,1508": "'Microphone' is not a known identifier",
-								"1509,1514": "'?' does not contain a definition for 'Start'",
-								"1541,1542": "'?' does not contain a definition for 'Start'",
-								"1570,1575": "'Input' is not a known identifier",
-								"1576,1589": "'?' does not contain a definition for 'GetButtonDown'",
-								"1598,1599": "Cannot convert from ? to System.Boolean",
-								"1622,1627": "'Debug' is not a known identifier",
-								"1628,1636": "'?' does not contain a definition for 'LogError'",
-								"1672,1673": "'?' does not contain a definition for 'LogError'",
-								"1686,1696": "'Microphone' is not a known identifier",
-								"1697,1700": "'?' does not contain a definition for 'End'",
-								"1710,1711": "'?' does not contain a definition for 'End'",
-								"1739,1744": "'Input' is not a known identifier",
-								"1745,1758": "'?' does not contain a definition for 'GetButtonDown'",
-								"1766,1767": "Cannot convert from ? to System.Boolean",
-								"1790,1795": "'Debug' is not a known identifier",
-								"1796,1804": "'?' does not contain a definition for 'LogError'",
-								"1823,1824": "'?' does not contain a definition for 'LogError'",
-								"1849,1853": "'AudioSource' does not contain a definition for 'Play'",
-								"1855,1856": "'AudioSource' does not contain a definition for 'Play'",
-								"218,229": "'AudioSource' is not a known identifier",
-								"327,338": "'AudioSource' is not a known identifier",
-								"339,340": "'GetComponent' is not a known identifier",
-								"341,342": "Cannot convert from ? to [UnknownType AudioSource]",
-								"352,366": "'StartCoroutine' is not a known identifier",
-								"378,379": "'MicTest' does not contain a definition for 'StartCoroutine'",
-								"438,441": "Could not determine type",
-								"452,462": "'Microphone' is not a known identifier",
-								"463,470": "'?' does not contain a definition for 'devices'",
-								"494,499": "'Debug' is not a known identifier",
-								"500,508": "'?' does not contain a definition for 'LogError'",
-								"522,528": "Error: String",
-								"529,530": "'?' does not contain a definition for 'LogError'",
-								"555,561": "Cannot convert from ? to System.String",
-								"562,563": "Invocation error: ArgumentTypeMismatch",
-								"6,17": "'UnityEngine' is not a known identifier",
-								"611,621": "'Microphone' is not a known identifier",
-								"622,635": "'?' does not contain a definition for 'GetDeviceCaps'",
-								"669,670": "'?' does not contain a definition for 'GetDeviceCaps'",
-								"684,689": "'Debug' is not a known identifier",
-								"690,698": "'?' does not contain a definition for 'LogError'",
-								"746,747": "'?' does not contain a definition for 'LogError'",
-								"827,841": "'WaitForSeconds' is not a known identifier",
-								"844,845": "Cannot convert from ? to System.Object",
-								"911,920": "'GUILayout' is not a known identifier",
-								"921,926": "'?' does not contain a definition for 'Label'",
-								"952,953": "'?' does not contain a definition for 'Label'"
+								"close":
+								{
+									"1":
+									[
+										212,
+										213
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										129,
+										130
+									]
+								},
+								"unmatched":
+								{
+								}
 							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
 							"syntax": "Packages/C#/C#.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -740,6 +849,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"player",
+				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\Player.cs"
+			],
 			[
 				"lobby",
 				"Assets\\Scripts\\SteamScripts\\HLAPI\\Classes\\Lobby.cs"
