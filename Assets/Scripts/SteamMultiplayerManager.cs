@@ -97,7 +97,7 @@ public class SteamMultiplayerManager
     /// <summary>
     /// Generates a unique ID for a single object.
     /// </summary>
-	public int CreateNewID()
+	public int GenerateUniqueID()
 	{
 		return m_GameObjectID++;
 	}
@@ -133,6 +133,7 @@ public class SteamMultiplayerManager
 		
 		//create a new lobby chat and add it to the chat message list
 		LobbyChatMessageValue _chat = new LobbyChatMessageValue();
+
 		_chat.steamPersonaName = SteamFriends.GetFriendPersonaName(SteamIDUser);
 		_chat.message = System.Text.Encoding.UTF8.GetString(Data);
 		m_Lobby.m_ChatMessages.Add(_chat);
@@ -206,9 +207,10 @@ public class SteamMultiplayerManager
 		Debug.Log ("Lobby Update: SteamIDMember - " + pCallback.m_ulSteamIDMember
 			+ " - Success: " + pCallback.m_bSuccess + " - Lobby: " + pCallback.m_ulSteamIDLobby);
 
-		//update the player list here
+        //update the player list here
+        GetPlayerList();
 
-	}
+    }
 
 	///<summary>
 	/// Join a lobby 
@@ -217,6 +219,8 @@ public class SteamMultiplayerManager
 	public void LeaveLobby(CSteamID lobby)
 	{
 		SteamMatchmaking.LeaveLobby (lobby);
+        m_Lobby = null;
+        m_PlayerList.Clear();
 		// currentLobby = null;
 		// m_ChatMessages = null;
 	}
@@ -249,7 +253,11 @@ public class SteamMultiplayerManager
 			m_Lobby.lobby = (CSteamID)pCallback.m_ulSteamIDLobby;
 			Lobby LobbyData = GetLobbyDataInfo(m_Lobby.lobby);
 			m_Lobby.lobbyName = LobbyData.name;
-		}
+
+            //get the players in the lobby
+            GetPlayerList();
+
+        }
 		else
 		{
 			Debug.LogError("Unable to Join Lobby");
@@ -263,11 +271,28 @@ public class SteamMultiplayerManager
 
 	public void GetPlayerList()
 	{
+        //clear the current player list
+        //we need a fresh playerlist
+        m_PlayerList.Clear();
+
 		// get if we are in a lobby or not
-		if(m_Lobby != null)
+		if(m_Lobby.lobby != null)
 		{
 			// gets all the players and returns them to the PlayerList
-			
+			int numMembers = GetNumberOfLobbyMembers(m_Lobby.lobby);
+
+			//TODO: for loop this and get every member and att it to the player list
+			for (int i = 0; i < numMembers; i++) 
+			{
+                Player _player = new Player();
+                _player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(m_Lobby.lobby, i);
+                _player.steamPersonaName = SteamFriends.GetFriendPersonaName(_player.lobbyID);
+                _player.UniqueID = GenerateUniqueID();
+                //add them to the player list
+                m_PlayerList.Add(_player);
+
+            }
+
 		}
 	}
 
@@ -289,7 +314,6 @@ public class SteamMultiplayerManager
 		CSteamID _owner = GetLobbyOwnerId(owner);
 		return SteamFriends.GetFriendPersonaName(_owner);
 	}
-
 
 
 	/////////////////////////////////////////////////////////////////////////////
