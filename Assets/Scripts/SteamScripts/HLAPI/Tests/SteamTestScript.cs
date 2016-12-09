@@ -10,22 +10,19 @@ public class SteamTestScript : MonoBehaviour {
 
 	private Vector2 scrollPosition;
 
-	private bool hasLobby = false;
-
-	public GameObject m_Player, SpawnCharacter;
-
 	// Use this for initialization
 	void Start () {
+
+        //set debug to be true
+        SMM.Instance.DebugTextOn = true;
 	
-		SteamMultiplayerManager.Instance.Setup();
-
-		StartCoroutine(SteamLobbyTest());
-
+		SMM.Instance.Setup();
+        SMM.Instance.RequestLobbyList();
 	}
 	
 	public void OnGUI()
 	{
-		if(hasLobby == false)
+		if(SMM.Instance.m_Lobby == null)
 		{
 			MainMenu();
 		}
@@ -40,27 +37,7 @@ public class SteamTestScript : MonoBehaviour {
 
 		if(GUILayout.Button("Leave Lobby", GUILayout.Height(30)))
 		{
-			hasLobby = false;
-			SteamMultiplayerManager.Instance.LeaveLobby(SteamMultiplayerManager.Instance.m_Lobby.lobby);
-		}
-
-		if(GUILayout.Button("Set Lobby Data"))
-		{
-			// SetLobbyData(CSteamID lobby, string name, string summary)
-			SteamMultiplayerManager.Instance.SetLobbyData(SteamMultiplayerManager.Instance.m_Lobby.lobby, "Kinifi", "Kinifi");
-		}		
-
-
-		//create a player if we dont have one already
-		if(m_Player == null)
-		{
-			if(GUILayout.Button("Create Player"))
-			{
-				GameObject _player;
-				_player = Instantiate(SpawnCharacter, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-				_player.name = "player";
-				m_Player = _player;
-			}
+			SMM.Instance.LeaveLobby(SMM.Instance.m_Lobby.lobby);
 		}
 
 	}
@@ -72,99 +49,52 @@ public class SteamTestScript : MonoBehaviour {
 
 		GUILayout.Label("Game Title");
 
-		if(SteamMultiplayerManager.Instance.m_LobbyList.Count == 0)
-		{
-			if(GUILayout.Button("Singleplayer", GUILayout.Height(30)))
-			{
-				
-			}
+        //only display the lobbies if there are actually lobbies
+        if (SMM.Instance.m_LobbyList.Count == 0)
+        {
+            GUILayout.Label("No Lobbies");
+            GUILayout.EndArea();
+            return;
+        }
 
-			GUILayout.Space(10);
+        //create a lobby
+        if(GUILayout.Button("Create Lobby"))
+        {
+            SMM.Instance.CreateLobby();
+        }
 
-			if(GUILayout.Button("Exit", GUILayout.Height(30)))
-			{
-				Application.Quit();
-			}
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+
+        //list all the lobbies and create join buttons for them
+        for (int i = 0; i < SMM.Instance.m_LobbyList.Count; i++)
+        {
+
+            GUILayout.BeginHorizontal();
+
+            //display lobby name
+            GUILayout.Label(SMM.Instance.m_LobbyList[i].name);
+            //join button
+            if (GUILayout.Button("Join"))
+            {
+                //join the lobby
+                SMM.Instance.JoinLobby(SMM.Instance.m_LobbyList[i].lobby);
+                //set the lobby to our class level var
+                SMM.Instance.m_Lobby.lobby = SMM.Instance.m_LobbyList[i].lobby;
+            }
+
+            GUILayout.EndHorizontal();
+        }
+
+        GUILayout.EndScrollView();
+
+	    if(GUILayout.Button("Quit", GUILayout.Height(30)))
+	    {
+		    Application.Quit();
+	    }
 		
-		}
-		else
-		{
-
-			if(GUILayout.Button("Singleplayer", GUILayout.Height(30)))
-			{
-
-			}
-
-			GUILayout.Space(10);
-			
-			GUILayout.Label("Multiplayer", GUILayout.Height(30));
-			
-			if(GUILayout.Button("Create Game", GUILayout.Height(30)))
-			{
-				//create a lobby here - public, 2 players
-				SteamMultiplayerManager.Instance.CreateLobby ();
-				Debug.Log("Creating Lobby");
-				hasLobby = true;
-			}
-
-			GUILayout.Space(10);			
-
-			GUILayout.Label("Lobbies", GUILayout.Height(30));
-
-			if(SteamMultiplayerManager.Instance.m_LobbyList.Count != 0)
-			{
-
-				scrollPosition = GUILayout.BeginScrollView(scrollPosition);
-
-				//list all the lobbies and create join buttons for them
-				for (int i = 0; i < SteamMultiplayerManager.Instance.m_LobbyList.Count; i++) {
-
-					GUILayout.BeginHorizontal ();
-
-					//display lobby name
-					GUILayout.Label (SteamMultiplayerManager.Instance.m_LobbyList[i].name);
-					//join button
-					if (GUILayout.Button ("Join")) {
-						//join the lobby
-						SteamMultiplayerManager.Instance.JoinLobby (SteamMultiplayerManager.Instance.m_LobbyList[i].lobby);
-						//set the lobby to our class level var
-						SteamMultiplayerManager.Instance.m_Lobby.lobby = SteamMultiplayerManager.Instance.m_LobbyList[i].lobby;
-					}
-
-					GUILayout.EndHorizontal ();
-				}
-
-				GUILayout.EndScrollView();
-
-			}
-			else
-			{
-				GUILayout.Label("...Loading Lobbies...");
-			}
-
-			GUILayout.Space(10);
-
-
-			if(GUILayout.Button("Exit", GUILayout.Height(30)))
-			{
-				Application.Quit();
-			}
-		}
 
 		GUILayout.EndArea();
 
 	}
-
-	public IEnumerator SteamLobbyTest()
-	{
-
-		yield return new WaitForSeconds(0.1f);
-
-		SteamMultiplayerManager.Instance.RequestLobbyList();
-
-		// yield return new WaitForSeconds(1);
-
-		// Debug.Log(SteamMultiplayerManager.Instance.m_LobbyList[0].name);
-	}	
 	
 }

@@ -36,14 +36,14 @@ public class P2PTest : MonoBehaviour {
 		m_SocketStatusCallback_t = Callback<SocketStatusCallback_t>.Create(OnSocketStatusCallback);
 
 		//make sure we have a lobby
-		if(SteamMultiplayerManager.Instance.m_Lobby.lobby != null)
+		if(SMM.Instance.m_Lobby.lobby != null)
 		{
 			m_hasConnected = true;
 			GetPlayer();
 			//get a unique id for this object
-			m_ID = SteamMultiplayerManager.Instance.GenerateUniqueID();
+			m_ID = SMM.Instance.GenerateUniqueID();
 
-			if(SteamMultiplayerManager.Instance.DebugTextOn)
+			if(SMM.Instance.DebugTextOn)
 			{
 				Debug.Log("ID: " + m_ID + " | Player: " + m_CurrentPlayer.steamPersonaName);
 			}
@@ -53,12 +53,12 @@ public class P2PTest : MonoBehaviour {
 
 	private void GetPlayer()
 	{
-		for (int i = 0; i < SteamMultiplayerManager.Instance.m_PlayerList.Count; i++) 
+		for (int i = 0; i < SMM.Instance.m_PlayerList.Count; i++) 
 		{
-			if(SteamMultiplayerManager.Instance.GetSteamPersonaName().ToLower() == SteamMultiplayerManager.Instance.m_PlayerList[i].steamPersonaName.ToLower())
+			if(SMM.Instance.GetSteamPersonaName().ToLower() == SMM.Instance.m_PlayerList[i].steamPersonaName.ToLower())
 			{
 				Debug.Log("Found My Player Name");
-				m_CurrentPlayer = SteamMultiplayerManager.Instance.m_PlayerList[i];
+				m_CurrentPlayer = SMM.Instance.m_PlayerList[i];
 			}
 		}
 	}
@@ -105,14 +105,14 @@ public class P2PTest : MonoBehaviour {
 		//convert to json
 		var PacketData = JSON.Dump( NewAction, true );
 
-		if(SteamMultiplayerManager.Instance.DebugTextOn)
+		if(SMM.Instance.DebugTextOn)
 		{
 			Debug.Log("" + m_ID + ": " + PacketData);
 		}
 
-		for (int i = 0; i < SteamMultiplayerManager.Instance.m_PlayerList.Count; i++) 
+		for (int i = 0; i < SMM.Instance.m_PlayerList.Count; i++) 
 		{
-			if(SteamMultiplayerManager.Instance.GetSteamPersonaName().ToLower() != SteamMultiplayerManager.Instance.m_PlayerList[i].steamPersonaName.ToLower())
+			if(SMM.Instance.GetSteamPersonaName().ToLower() != SMM.Instance.m_PlayerList[i].steamPersonaName.ToLower())
 			{
 				//convert our json to bytes
 				byte[] packetBytes = Encoding.ASCII.GetBytes(PacketData);

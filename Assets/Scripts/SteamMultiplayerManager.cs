@@ -1,11 +1,11 @@
 ﻿/*
  *  Game Manager
- *  This is how we will save our persistent data such as: 
+ *  This is how we will save our persistent data such as:
  *  Logged in save data from a json file and assigning variables which we access in game
  *  With this Singleton we can store data we need for later use
  *  Example on how to use: GameManager.Instance.[Variable Name / Method Name]
  *  Methods and Variables must be public
- *  Note: A new singleton should be created per platform for achievements string literals and specific achievement methods 
+ *  Note: A new singleton should be created per platform for achievements string literals and specific achievement methods
  *
  */
 
@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Steamworks;
 
-public class SteamMultiplayerManager
+public class SMM
 {
 
 	//Class Level Members Start
@@ -62,7 +62,6 @@ public class SteamMultiplayerManager
 	//lobby creation callback
 	private CallResult<LobbyCreated_t> OnLobbyCreatedCallResult;
 
-	//Method Start
 
     /// <summary>
     /// load all of the data on setup
@@ -76,7 +75,7 @@ public class SteamMultiplayerManager
 
 		//register the callback so we can get a list of lobbies
 		OnLobbyMatchListCallResult = CallResult<LobbyMatchList_t>.Create(OnLobbyMatchList);
-	
+
 		//register the callresult for entering the lobby
 		OnLobbyEnterCallResult = CallResult<LobbyEnter_t>.Create(OnLobbyEnter);
 
@@ -106,14 +105,14 @@ public class SteamMultiplayerManager
 	/////////////////////////////////////////////////////////////////////////////
 	// Lobby Chat Messaging
 
-    ///Send a message to the lobby
+  ///Send a message to the lobby
     public void SendLobbyChatMsg(string message, CSteamID lobby)
     {
-		byte[] MsgBody = System.Text.Encoding.UTF8.GetBytes(message);
-		SteamMatchmaking.SendLobbyChatMsg(lobby, MsgBody, MsgBody.Length);
+	    byte[] MsgBody = System.Text.Encoding.UTF8.GetBytes(message);
+	    SteamMatchmaking.SendLobbyChatMsg(lobby, MsgBody, MsgBody.Length);
     }
 
-	private void OnLobbyChatUpdate(LobbyChatUpdate_t pCallback) 
+	private void OnLobbyChatUpdate(LobbyChatUpdate_t pCallback)
 	{
 		if(DebugTextOn)
 		{
@@ -129,15 +128,18 @@ public class SteamMultiplayerManager
 		EChatEntryType ChatEntryType;
 		int ret = SteamMatchmaking.GetLobbyChatEntry((CSteamID)pCallback.m_ulSteamIDLobby, (int)pCallback.m_iChatID, out SteamIDUser, Data, Data.Length, out ChatEntryType);
 
-		// Debug.Log("SteamMatchmaking.GetLobbyChatEntry(" + (CSteamID)pCallback.m_ulSteamIDLobby + ", " + (int)pCallback.m_iChatID + ", out SteamIDUser, Data, Data.Length, out ChatEntryType) : " + ret + " -- " + SteamIDUser + " -- " + System.Text.Encoding.UTF8.GetString(Data) + " -- " + ChatEntryType);
-		
+		if(DebugTextOn)
+		{
+			Debug.Log("SteamMatchmaking.GetLobbyChatEntry(" + (CSteamID)pCallback.m_ulSteamIDLobby + ", " + (int)pCallback.m_iChatID + ", out SteamIDUser, Data, Data.Length, out ChatEntryType) : " + ret + " -- " + SteamIDUser + " -- " + System.Text.Encoding.UTF8.GetString(Data) + " -- " + ChatEntryType);
+		}
+
 		//create a new lobby chat and add it to the chat message list
 		LobbyChatMessageValue _chat = new LobbyChatMessageValue();
 
 		_chat.steamPersonaName = SteamFriends.GetFriendPersonaName(SteamIDUser);
 		_chat.message = System.Text.Encoding.UTF8.GetString(Data);
 		m_Lobby.m_ChatMessages.Add(_chat);
-		
+
 		if(DebugTextOn)
 		{
 			Debug.Log("Chat Messages Total: " + m_Lobby.m_ChatMessages.Count + "| Newest Message: " + _chat.message);
@@ -149,11 +151,11 @@ public class SteamMultiplayerManager
 	// Join / Update / Entering Lobbies / Leaving Lobbies
 
 
-	public void CreateLobby() 
+	public void CreateLobby()
 	{
 		SteamAPICall_t handle = SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 2);
 		OnLobbyCreatedCallResult.Set(handle);
-		
+
 		if(DebugTextOn)
 		{
 			Debug.Log("SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, 1) : " + handle);
@@ -172,7 +174,7 @@ public class SteamMultiplayerManager
 		return SteamMatchmaking.GetLobbyMemberLimit(lobby);
 	}
 
-	private void OnLobbyCreated(LobbyCreated_t pCallback, bool bIOFailure) 
+	private void OnLobbyCreated(LobbyCreated_t pCallback, bool bIOFailure)
 	{
 		if (bIOFailure == false)
 		{
@@ -193,7 +195,7 @@ public class SteamMultiplayerManager
 	public void SetLobbyData(CSteamID lobby, string name, string summary)
 	{
 		SteamMatchmaking.SetLobbyData (lobby, name, summary);
-		
+
 		if(DebugTextOn)
 		{
 			Debug.Log("SteamMatchmaking.SetLobbyData() : " + name + " : " + summary);
@@ -213,7 +215,7 @@ public class SteamMultiplayerManager
     }
 
 	///<summary>
-	/// Join a lobby 
+	/// Join a lobby
 	/// <param>CSteamID object of the lobby wanting to Leave</param>
 	///</summary>
 	public void LeaveLobby(CSteamID lobby)
@@ -221,28 +223,27 @@ public class SteamMultiplayerManager
 		SteamMatchmaking.LeaveLobby (lobby);
         m_Lobby = null;
         m_PlayerList.Clear();
-		// currentLobby = null;
-		// m_ChatMessages = null;
+
 	}
 
 	///<summary>
-	/// Join a lobby 
+	/// Join a lobby
 	/// <param>CSteamID object of the lobby wanting to join</param>
 	///</summary>
 	public void JoinLobby(CSteamID _Lobby)
 	{
 		SteamAPICall_t handle = SteamMatchmaking.JoinLobby(_Lobby);
 		OnLobbyEnterCallResult.Set(handle);
-		
+
 		if(DebugTextOn)
 		{
 			Debug.Log("SteamMatchmaking.JoinLobby(" + _Lobby + ") : " + handle);
 		}
 	}
 
-	//called when a user enters the lobby. 
+	//called when a user enters the lobby.
 	//updating players list would be a good time to do something here
-	private void OnLobbyEnter(LobbyEnter_t pCallback, bool bIOFailure) 
+	private void OnLobbyEnter(LobbyEnter_t pCallback, bool bIOFailure)
 	{
 		if(bIOFailure == false)
 		{
@@ -302,7 +303,7 @@ public class SteamMultiplayerManager
 
 		//return null because Steam didn't give us an image
 		return null;
-		
+
 	}
 
 	public void GetPlayerList()
@@ -311,25 +312,23 @@ public class SteamMultiplayerManager
         //we need a fresh playerlist
         m_PlayerList.Clear();
 
-		// get if we are in a lobby or not
-		if(m_Lobby.lobby != null)
-		{
-			// gets all the players and returns them to the PlayerList
-			int numMembers = GetNumberOfLobbyMembers(m_Lobby.lobby);
+		    // get if we are in a lobby or not
+		    if(m_Lobby.lobby != null)
+		    {
+                // gets all the players and returns them to the PlayerList
+                int numMembers = GetNumberOfLobbyMembers(m_Lobby.lobby);
 
-			//TODO: for loop this and get every member and att it to the player list
-			for (int i = 0; i < numMembers; i++) 
-			{
-                Player _player = new Player();
-                _player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(m_Lobby.lobby, i);
-                _player.steamPersonaName = SteamFriends.GetFriendPersonaName(_player.lobbyID);
-                // _player.UniqueID = GenerateUniqueID();
-                //add them to the player list
-                m_PlayerList.Add(_player);
+                //TODO: for loop this and get every member and att it to the player list
+                for (int i = 0; i < numMembers; i++)
+                {
+                    Player _player = new Player();
+                    _player.lobbyID = SteamMatchmaking.GetLobbyMemberByIndex(m_Lobby.lobby, i);
+                    _player.steamPersonaName = SteamFriends.GetFriendPersonaName(_player.lobbyID);
+                    //add them to the player list
+                    m_PlayerList.Add(_player);
+                }
 
-            }
-
-		}
+		    }
 	}
 
 	// m_PlayerList
@@ -358,25 +357,25 @@ public class SteamMultiplayerManager
 	///<summary>
 	/// Request a list of lobbies
 	///</summary>
-	public void RequestLobbyList() 
+	public void RequestLobbyList()
 	{
 		SteamAPICall_t handle = SteamMatchmaking.RequestLobbyList();
 		OnLobbyMatchListCallResult.Set(handle);
-		
+
 		if(DebugTextOn)
 		{
 			Debug.Log("SteamMatchmaking.RequestLobbyList() : " + handle);
 		}
 	}
 
-	private void OnLobbyMatchList(LobbyMatchList_t pCallback, bool bIOFailure) 
+	private void OnLobbyMatchList(LobbyMatchList_t pCallback, bool bIOFailure)
 	{
 		//check if we failed to get a list of matches
-		if (bIOFailure == false) 
+		if (bIOFailure == false)
 		{
 			Debug.Log ("[" + LobbyMatchList_t.k_iCallback + " - LobbyMatchList] - " + pCallback.m_nLobbiesMatching);
-			
-			for (int i = 0; i < (int)pCallback.m_nLobbiesMatching; i++) 
+
+			for (int i = 0; i < (int)pCallback.m_nLobbiesMatching; i++)
 			{
 				GetLobbyByIndex (i);
 			}
@@ -420,27 +419,27 @@ public class SteamMultiplayerManager
 	//Method End
 
 	//create a local instance of GameManager
-    private static SteamMultiplayerManager instance;
+    private static SMM instance;
 
     //If there isn't a GameManager instance, create one.
-    public static SteamMultiplayerManager Instance
+    public static SMM Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new SteamMultiplayerManager();
+                instance = new SMM();
             }
             return instance;
         }
     }
-	
+
     private void Shutdown()
     {
         if (instance != null) {
             instance = null;
-        }	
-    
+        }
+
     }
 
 }
