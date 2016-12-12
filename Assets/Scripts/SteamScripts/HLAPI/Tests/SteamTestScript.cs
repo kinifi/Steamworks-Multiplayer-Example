@@ -9,6 +9,7 @@ using System.Collections;
 public class SteamTestScript : MonoBehaviour {
 
 	private Vector2 scrollPosition;
+    private string m_newChatMessage = "";
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +36,52 @@ public class SteamTestScript : MonoBehaviour {
 	private void LobbyMenu()
 	{
 
-		if(GUILayout.Button("Leave Lobby", GUILayout.Height(30)))
+        GUILayout.Label("Game Title");
+        GUILayout.Space(10);
+
+        GUILayout.Label("Users: ");
+        for (int p = 0; p < SMM.Instance.m_PlayerList.Count; p++)
+        {
+            GUILayout.Label(SMM.Instance.m_PlayerList[p].steamPersonaName);
+        }
+        GUILayout.Space(10);
+
+        //display the chat messages
+        GUILayout.Label("Lobby Chat: ");
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+        if (SMM.Instance.m_Lobby.m_ChatMessages.Count != 0)
+        {
+            //display all the lobby chat messages
+            for (int c = 0; c < SMM.Instance.m_Lobby.m_ChatMessages.Count; c++)
+            {
+                //display the user ID and the message
+                GUILayout.Label(SMM.Instance.m_Lobby.m_ChatMessages[c].steamPersonaName + ": " + SMM.Instance.m_Lobby.m_ChatMessages[c].message);
+            }
+        }
+        else
+        {
+            //no messages so display that there are no messages
+            GUILayout.Label("No Chat Messages in Lobby");
+        }
+
+        //display a textbox and a send button
+
+
+        GUILayout.EndScrollView();
+        //end chat message scrollview
+
+        m_newChatMessage = GUILayout.TextArea(m_newChatMessage, GUILayout.Height(50));
+        if(GUILayout.Button("Send"))
+        {
+            //send the chat message
+            SMM.Instance.SendLobbyChatMsg(m_newChatMessage, SMM.Instance.m_Lobby.lobby);
+            //clear the text area
+            m_newChatMessage = "";
+        }
+
+        GUILayout.Space(10);
+
+        if (GUILayout.Button("Leave Lobby", GUILayout.Height(30)))
 		{
 			SMM.Instance.LeaveLobby(SMM.Instance.m_Lobby.lobby);
 		}
@@ -45,7 +91,8 @@ public class SteamTestScript : MonoBehaviour {
 	private void MainMenu()
 	{
 
-		GUILayout.BeginArea(new Rect(Screen.width/2-100, 0, 200, 400));
+        //display the UI for creating and joining a game
+        GUILayout.BeginArea(new Rect(Screen.width/2-100, 0, 200, 400));
 
 		GUILayout.Label("Game Title");
 

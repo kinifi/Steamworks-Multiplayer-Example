@@ -122,7 +122,7 @@ public class SMM
 
 	private void OnLobbyChatMsg(LobbyChatMsg_t pCallback)
 	{
-		// Debug.Log("[" + LobbyChatMsg_t.k_iCallback + " - LobbyChatMsg] - " + pCallback.m_ulSteamIDLobby + " -- " + pCallback.m_ulSteamIDUser + " -- " + pCallback.m_eChatEntryType + " -- " + pCallback.m_iChatID);
+		
 		CSteamID SteamIDUser;
 		byte[] Data = new byte[4096];
 		EChatEntryType ChatEntryType;
